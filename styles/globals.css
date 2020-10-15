@@ -1,0 +1,109 @@
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+.bg-primary {
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
+}
+
+.text-primary {
+  color: #4caf50 !important;
+}
+
+.square-img {
+  height: 230px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.relative {
+  overflow: hidden;
+  position: relative;
+}
+
+.relative .category {
+  position: absolute;
+  z-index: 900;
+  bottom: 5px;
+  left: 5px;
+}
+
+.hover-zoom {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.hover-zoom:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.hover-overflow {
+  display: block;
+  overflow: hidden;
+}
+
+.orange-light {
+  background: #fff3e0;
+}
+
+.orange {
+  background: #ff9800;
+}
+
+.orange:hover {
+  background: #cf8009;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.vh-80 {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-page {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("/img/arseny-togulev-DE6rYp1nAho-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.profil-page {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("/img/louis-reed-pwcKF7L4-no-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.produk-page {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("/img/javier-matheu-AHDeiqdiC7Q-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content img {
+  max-width: 400px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
