@@ -26,14 +26,16 @@ try {
 
 function Kategori({ product }) {
   const SEO = {
-    title: `PT Kasih Karunia Kekal | ${product.nama}`,
+    title: `PT. ZZF Industri Indonesia | ${product.nama}`,
     description: product.deskripsi_singkat,
 
     openGraph: {
-      title: `PT Kasih Karunia Kekal | ${product.nama}`,
+      title: `PT. ZZF Industri Indonesia | ${product.nama}`,
       description: product.deskripsi_singkat,
     },
   };
+
+  console.log(product)
 
   return (
     <>
@@ -50,7 +52,7 @@ function Kategori({ product }) {
           <h3 className="mb-4">Kategori Produk : {product.nama}</h3>
           <div className="row">
             {product
-              ? product.products.map((product) => {
+              ? product.zzf_produks.map((product) => {
                   return <ProductList key={product.id} product={product} />;
                 })
               : "Tidak ada data"}
@@ -62,7 +64,7 @@ function Kategori({ product }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await clientAxios(`/product-categories?slug=${slug}`);
+  const res = await clientAxios(`/zzf-produk-kategoris?slug=${slug}`);
 
   return {
     props: {

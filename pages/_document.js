@@ -17,10 +17,12 @@ class MyDocument extends Document {
             integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
             crossorigin="anonymous"
           />
+
           <link
-            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet"
-          />
+          ></link>
+
           <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -46,7 +48,10 @@ class MyDocument extends Document {
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"
           />
-          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          <script
+            type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          ></script>
           <script src="/js/app.js"></script>
         </body>
       </Html>

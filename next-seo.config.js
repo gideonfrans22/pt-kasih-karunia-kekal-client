@@ -1,11 +1,11 @@
 export default {
-  title: "PT Kasih Karunia Kekal",
+  title: "PT ZZF INDUSTRI INDONESIA",
   description: "Distributor alat kesehatan sejak 1999",
   openGraph: {
     type: "website",
     locale: "en_IE",
     url: "https://www.nextmovies.test",
-    site_name: "PT Kasih Karunia Kekal",
+    site_name: "PT ZZF INDUSTRI INDONESIA",
   },
   twitter: {
     handle: "@ivan_doric",

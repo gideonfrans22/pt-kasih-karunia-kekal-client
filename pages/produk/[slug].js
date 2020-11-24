@@ -29,24 +29,26 @@ try {
 
 function Movie({ product, offices }) {
   const SEO = {
-    title: `PT Kasih Karunia Kekal | ${product.nama}`,
+    title: `PT. ZZF Industri Indonesia | ${product.nama}`,
     description: product.deskripsi_singkat,
 
     openGraph: {
-      title: `PT Kasih Karunia Kekal | ${product.nama}`,
+      title: `PT. ZZF Industri Indonesia | ${product.nama}`,
       description: product.deskripsi_singkat,
     },
   };
 
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  console.log(product)
+
 
   return (
     <>
       <NextSeo {...SEO} />
       <div className="container py-5">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-12">
             <div className="row">
               <div className="col-md-6 mb-4">
                 <div
@@ -127,7 +129,7 @@ function Movie({ product, offices }) {
                 )}
               </div>
               <div className="col-md-6 mb-4">
-                <h1 className="h5 font-weight-bold">{product.nama}</h1>
+                <h1 className="h5 font-weight-bold text-dark">{product.nama}</h1>
                 <p>{product.deskripsi_singkat}</p>
                 {product.dokumen ? (
                   <a
@@ -159,31 +161,31 @@ function Movie({ product, offices }) {
                   <h5>Rp{numeral(product.harga).format("0,0")}</h5>
                 )} */}
                 <a
-                  href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal, saya ingin membeli produk "}${
+                  href={`https://api.whatsapp.com/send?phone=62818961343&text=${"Halo Admin PT. ZZF Industri Indonesia, saya ingin membeli produk "}${
                     product.nama
                   }`}
-                  className="btn btn-success d-block mt-4"
+                  className="btn btn-danger d-block mt-4 py-2"
                 >
                   <i className="fab fa-whatsapp mr-2"></i>Beli via Whatsapp
                 </a>
               </div>
               <div className="col-md-12 mb-4">
                 <div className="card">
-                  <div className="card-header">Deskripsi {product.nama}</div>
+                  <div className="card-header text-dark font-weight-bold">Deskripsi {product.nama}</div>
                   <div className="card-body">
-                    {product.product_type ? (
+                    {product.zzf_produk_kategori ? (
                       <a
                         href="#!"
-                        className="badge badge-success d-inline-block mb-4"
+                        className="badge badge-secondary d-inline-block mb-4"
                       >
-                        Type: {product.product_type.tipe}
+                       {product.zzf_produk_kategori.nama}
                       </a>
                     ) : null}
                     <div className="content">
                       <ReactMarkdown
                         source={
-                          product.deskripsi_lengkap
-                            ? product.deskripsi_lengkap.replace(
+                          product.deskripsi
+                            ? product.deskripsi.replace(
                                 "/uploads",
                                 "http://128.199.182.224:1337/uploads"
                               )
@@ -191,8 +193,8 @@ function Movie({ product, offices }) {
                         }
                       />
                     </div>
-                    <p>Kategori:</p>
-                    {product.product_categories.map((category) => {
+                    {/* <p>Kategori:</p> */}
+                    {/* {product.zzf_produk_kategori?.map((category) => {
                       return (
                         <Link
                           href="/produk/kategori/[slug]"
@@ -206,13 +208,13 @@ function Movie({ product, offices }) {
                           </a>
                         </Link>
                       );
-                    })}
+                    })} */}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="card">
               <div className="card-header">Butuh bantuan? Hubungi:</div>
               <div className="card-body">
@@ -228,7 +230,7 @@ function Movie({ product, offices }) {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <hr />
@@ -239,32 +241,32 @@ function Movie({ product, offices }) {
               Jual {product.nama} terbaik
             </h6>
             <p className="small">
-              PT Kasih Karunia Kekal merupakan distributor alat kesehatan
-              terpercaya dalam menjual {product.nama}. PT Kasih Karunia Kekal
-              telah berpengalaman dalam membantu pelanggan dan konsumen memilih{" "}
-              {product.nama} terbaik.
+              PT. ZZF Industri Indonesia merupakan distributor alat kesehatan
+              terpercaya dalam menjual {product.nama}. PT. ZZF Industri
+              Indonesia telah berpengalaman dalam membantu pelanggan dan
+              konsumen memilih {product.nama} terbaik.
             </p>
             <p className="small">
               Anda dapat membandingkan harga {product.nama} dengan cepat dan
               mudah, dan dapat menemukan spesifikasi {product.nama} seperti
-              warna, ukuran, atau spesifikasi lainnya. PT Kasih Karunia Kekal
-              membantu pengunjung untuk menemukan produk popular dan unggulan
-              dengan daftar {product.nama} yang paling banyak dilihat pengunjung
-              serta
+              warna, ukuran, atau spesifikasi lainnya. PT. ZZF Industri
+              Indonesia membantu pengunjung untuk menemukan produk popular dan
+              unggulan dengan daftar {product.nama} yang paling banyak dilihat
+              pengunjung serta
               {product.nama} yang paling banyak dibeli.
             </p>
             <p className="small">
-              {product.nama} yang Anda beli di PT Kasih Karunia Kekal merupakan
-              produk original dengan kualitas terjamin. PT Kasih Karunia Kekal
-              memastikan konsumen hanya menerima {product.nama}
+              {product.nama} yang Anda beli di PT. ZZF Industri Indonesia
+              merupakan produk original dengan kualitas terjamin. PT. ZZF
+              Industri Indonesia memastikan konsumen hanya menerima{" "}
+              {product.nama}
               asli.
             </p>
             <p className="small">
-              Belanja online di PT Kasih Karunia Kekal semakin aman dan mudah
-              karena langsung terhubung ke kontak Whatsapp PT Kasih Karunia
-              Kekal. Tidak perlu takut untuk beli
+              Belanja online di PT. ZZF Industri Indonesia semakin aman dan
+              mudah karena langsung terhubung ke kontak Whatsapp PT. ZZF Industri Indonesia. Tidak perlu takut untuk beli
               {product.nama} dan melakukan pembayaran, karena semua komunikasi
-              di PT Kasih Karunia Kekal dienkripsi dengan teknologi SSL.
+              di PT. ZZF Industri Indonesia dienkripsi dengan teknologi SSL.
             </p>
           </div>
           <div className="col-md-6 mb-4">
@@ -272,18 +274,19 @@ function Movie({ product, offices }) {
               Belanja {product.nama} murah
             </h6>
             <p className="small">
-              PT Kasih Karunia Kekal jual {product.nama} memberikan penawaran
-              menarik setiap harinya, seperti diskon, potongan harga melalui
-              coupon atau voucher yang dapat ditukarkan pada saat checkout. PT
-              Kasih Karunia Kekal menjual {product.nama} dengan harga yang murah
-              namun bersaing dan berkualitas.
+              PT. ZZF Industri Indonesia jual {product.nama} memberikan
+              penawaran menarik setiap harinya, seperti diskon, potongan harga
+              melalui coupon atau voucher yang dapat ditukarkan pada saat
+              checkout. PT. ZZF Industri Indonesia menjual {product.nama} dengan
+              harga yang murah namun bersaing dan berkualitas.
             </p>
             <p className="small">
               Dapatkan daftar dan perbandingan harga {product.nama}
-              rmurah hanya di PT Kasih Karunia Kekal. Tidak hanya {product.nama}
-              , Anda dapat menemukan variasi dan produk dengan harga murah dan
-              harga terbaik lainnya di PT Kasih Karunia Kekal. {product.nama}
-              dapat dibeli di PT Kasih Karunia Kekal dengan harga murah dan
+              rmurah hanya di PT. ZZF Industri Indonesia. Tidak hanya{" "}
+              {product.nama}, Anda dapat menemukan variasi dan produk dengan
+              harga murah dan harga terbaik lainnya di PT. ZZF Industri
+              Indonesia. {product.nama}
+              dapat dibeli di PT. ZZF Industri Indonesia dengan harga murah dan
               berkualitas dengan garansi asli.
             </p>
           </div>
@@ -301,10 +304,9 @@ function Movie({ product, offices }) {
               mengantarkan produk yang anda pilih ke lokasi tujuan.
             </p>
             <p className="small">
-              Belanja online di PT Kasih Karunia Kekal semakin murah karena
-              sering ada promo yang dapat diikuti oleh semua member PT Kasih
-              Karunia Kekal. Segera miliki {product.nama} termurah dan terbaru
-              hanya di PT Kasih Karunia Kekal.
+              Belanja online di PT. ZZF Industri Indonesia semakin murah karena
+              sering ada promo yang dapat diikuti oleh semua member PT. ZZF Industri Indonesia. Segera miliki {product.nama} termurah dan terbaru
+              hanya di PT. ZZF Industri Indonesia.
             </p>
           </div>
         </div>
@@ -314,13 +316,13 @@ function Movie({ product, offices }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await clientAxios(`/products?slug=${slug}`);
-  const offices = await clientAxios("/offices");
+  const res = await clientAxios(`/zzf-produks?slug=${slug}`);
+  // const offices = await clientAxios("/offices");
 
   return {
     props: {
       product: res.data[0] || null,
-      offices: offices.data,
+      // offices: offices.data,
     },
   };
 }

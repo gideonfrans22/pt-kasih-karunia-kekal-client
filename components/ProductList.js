@@ -43,7 +43,7 @@ const ProductList = ({ product }) => {
                 href="/produk/type/[id]"
                 as={`/produk/type/${product?.product_type?.id}`}
               >
-                <a className="badge badge-success">
+                <a className="badge badge-secondary">
                   Type: {product?.product_type?.tipe}
                 </a>
               </Link>
@@ -52,8 +52,8 @@ const ProductList = ({ product }) => {
         </div>
         <div className="card-body">
           <Link href="/produk/[slug]" as={`/produk/${product.slug}`}>
-            <a className="text-body">
-              <h6 className="card-title">
+            <a className="text-body text-decoration-none">
+              <h6 className="card-title text-dark text-decoration-none">
                 {product.nama.substring(0, 40)}
                 {product.nama.length <= 40 ? "" : "..."}
               </h6>
@@ -77,23 +77,19 @@ const ProductList = ({ product }) => {
           ) : (
             <h5>Rp{numeral(product.harga).format("a")}</h5>
           )} */}
-          {product.product_categories
-            ? product.product_categories.map((category) => {
-                return (
-                  <Link
-                    href="/produk/kategori/[id]"
-                    as={`/produk/kategori/${category.slug}`}
-                    key={category.id}
-                  >
-                    <a>
-                      <h4 className="badge badge-warning mr-1">
-                        {category.nama}
-                      </h4>
-                    </a>
-                  </Link>
-                );
-              })
-            : null}
+          {product.zzf_produk_kategori ? (
+            <Link
+              href="/produk/kategori/[id]"
+              as={`/produk/kategori/${product.zzf_produk_kategori.slug}`}
+              key={product.zzf_produk_kategori.id}
+            >
+              <a>
+                <h4 className="badge badge-secondary mr-1">
+                  {product.zzf_produk_kategori.nama}
+                </h4>
+              </a>
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

@@ -17,19 +17,26 @@ export default function Kontak({ page, offices }) {
   };
   return (
     <main>
-      <div className="jumbotron jumbotron-fluid mb-0 produk-page">
+      {/* <div className="jumbotron jumbotron-fluid mb-0 produk-page">
         <div className="container">
           <h1>{page.judul_halaman}</h1>
           <p className="lead">{page.deskripsi_halaman}</p>
+        </div>
+      </div> */}
+
+      <div className="jumbotron jumbotron-fluid mb-0 produk-page">
+        <div className="container">
+          <h1 className="font-weight-bold text-dark">Any Question?</h1>
+          <p className="lead">Contact us, we are ready to serve you 24/7</p>
         </div>
       </div>
 
       <div className="container py-5">
         <div className="row">
           <div className="col-md-6">
-            <h3 className="mb-4">Kami siap melayani anda</h3>
+            <h3 className="mb-4 text-dark title-border">We are ready to serve you</h3>
             <div class="form-group">
-              <label for="nama">Nama</label>
+              <label for="nama">Name</label>
               <input
                 type="text"
                 class="form-control"
@@ -38,7 +45,7 @@ export default function Kontak({ page, offices }) {
               />
             </div>
             <div class="form-group">
-              <label for="email">Alamat Email</label>
+              <label for="email">Email Address</label>
               <input
                 type="email"
                 class="form-control"
@@ -47,7 +54,7 @@ export default function Kontak({ page, offices }) {
               />
             </div>
             <div class="form-group">
-              <label for="pesan">Pesan</label>
+              <label for="pesan">Mail</label>
               <textarea
                 class="form-control"
                 id="pesan"
@@ -57,29 +64,29 @@ export default function Kontak({ page, offices }) {
             </div>
             <a
               target="_blank"
-              href={`https://api.whatsapp.com/send?phone=628121103829&text=${stateForm.nama}%0A${stateForm.email}%0A%0APesan:%0A${stateForm.pesan}`}
+              href={`https://api.whatsapp.com/send?phone=62818961343&text=${stateForm.nama}%0A${stateForm.email}%0A%0APesan:%0A${stateForm.pesan}`}
               type="submit"
-              class="btn btn-primary"
+              class="btn btn-danger py-2"
             >
               Submit
             </a>
           </div>
           <div className="col-md-6">
-            <h3 className="mb-4">Office Pusat</h3>
+            <h3 className="mb-4 text-dark title-border">Our Workshop</h3>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.734888806025!2d106.8719315153467!3d-6.166246262148849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5010970eee9%3A0xf9dd2148b5e84264!2sPT%20Kasih%20Karunia%20Kekal%20Jakarta!5e0!3m2!1sen!2sid!4v1597245681688!5m2!1sen!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126876.52808685374!2d106.92257435820315!3d-6.407975699999989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6994305009f71b%3A0xa5e8539680a5c192!2sZZF%20Indonesia%20Tower%20Crane!5e0!3m2!1sid!2sid!4v1606101859965!5m2!1sid!2sid"
               width="100%"
               height="400"
               frameborder="0"
-              allowFullScreen=""
+              allowfullscreen=""
               aria-hidden="false"
-              tabIndex="0"
+              tabindex="0"
             ></iframe>
           </div>
         </div>
       </div>
 
-      <section>
+      {/* <section>
         <div className="container my-4">
           <div className="row">
             <div className="col-md-12">
@@ -170,19 +177,19 @@ export default function Kontak({ page, offices }) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
 
-export async function getServerSideProps() {
-  const offices = await clientAxios("/offices?_sort=created_at:DESC");
-  const page = await clientAxios("/pages?halaman=kontak");
+// export async function getServerSideProps() {
+//   const offices = await clientAxios("/offices?_sort=created_at:DESC");
+//   const page = await clientAxios("/pages?halaman=kontak");
 
-  return {
-    props: {
-      page: page.data[0],
-      offices: offices.data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       page: page.data[0],
+//       offices: offices.data,
+//     },
+//   };
+// }

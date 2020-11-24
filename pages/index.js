@@ -14,13 +14,17 @@ export default function Home({
     <main>
       <div className="jumbotron jumbotron-fluid mb-0 index-page">
         <div className="container">
-          {console.log(distributors)}
-          <h1>{page.judul_halaman}</h1>
-          <p className="lead">{page.deskripsi_halaman}</p>
+          <h1 className="font-weight-bold text-dark">
+            The Best Heavy Equipment Supplier
+          </h1>
+          <p className="lead">
+            We provide a great quality with a valuable price that makes us more
+            than the others on the market.
+          </p>
         </div>
       </div>
 
-      <section className="pt-4 bg-light">
+      {/* <section className="pt-4 bg-light">
         <div className="container">
           <div className="row">
             <div className="col-sm-6 col-md-3 mb-4">
@@ -85,10 +89,10 @@ export default function Home({
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div className="container py-5">
-        <h3 className="mb-4">Produk Telah diregistrasi oleh Kemenkes</h3>
+        <h3 className="mb-4 font-weight-bold text-dark title-border">Featured Products</h3>
         <div className="row">
           {products.length
             ? products.map((product) => {
@@ -99,7 +103,7 @@ export default function Home({
       </div>
 
       <section>
-        <div className="container">
+        {/* <div className="container">
           <h3 className="mb-4">Artikel terkini untuk anda</h3>
           <p>Pilih berdasarkan kategori dibawah.</p>
         </div>
@@ -115,9 +119,9 @@ export default function Home({
               </Link>
             );
           })}
-        </div>
+        </div> */}
 
-        <div className="container my-4">
+        {/* <div className="container my-4">
           <div className="row">
             {blogs.map((blog) => {
               return (
@@ -173,10 +177,122 @@ export default function Home({
               );
             })}
           </div>
-        </div>
+        </div> */}
 
         <div className="container mt-4">
-          <h3>Distributor Kami</h3>
+          <h3 className="font-weight-bold text-dark title-border">Our Clients</h3>
+          {/* <div className="row">
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/wika-gedung.jpg"
+                alt="wika-gedung"
+                title="wika-gedung"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/wika.png"
+                alt="wika"
+                title="wika"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/adhi.png"
+                alt="adhi"
+                title="adhi"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/moratelindo.jpg"
+                alt="moratelindo"
+                title="moratelindo"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/angkasa-pura.jpg"
+                alt="angkasa-pura"
+                title="angkasa-pura"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/pp-taisei.jpg"
+                alt="pp-taisei"
+                title="pp-taisei"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/zest-hotel.jpeg"
+                alt="zest-hotel"
+                title="zest-hotel"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/hotel-88.jpg"
+                alt="hotel-88"
+                title="hotel-88"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/cemara-hotel.png"
+                alt="cemara-hotel"
+                title="cemara-hotel"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/hom-hotel.png"
+                alt="hom-hotel"
+                title="hom-hotel"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div className="col-md-2 mb-4">
+              <img
+                src="/img/wika-gedung.jpg"
+                alt="wika-gedung"
+                title="wika-gedung"
+                width="100%"
+                height="100px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </div> */}
           <div className="row">
             {distributors.map((distributor) => {
               return (
@@ -201,21 +317,21 @@ export default function Home({
 
 export async function getServerSideProps() {
   const products = await clientAxios(
-    "/products?_limit=8&_sort=created_at:DESC"
+    "/zzf-produks?_limit=8&_sort=created_at:DESC"
   );
-  const blogCategories = await clientAxios("/blog-categories");
-  const blogs = await clientAxios("/blogs?_sort=created_at:DESC");
-  const page = await clientAxios("/pages?halaman=home");
-  const officeCount = await clientAxios("/offices/count");
-  const distributors = await clientAxios("/distributors");
+  // const blogCategories = await clientAxios("/blog-categories");
+  // const blogs = await clientAxios("/blogs?_sort=created_at:DESC");
+  // const page = await clientAxios("/pages?halaman=home");
+  // const officeCount = await clientAxios("/offices/count");
+  const distributors = await clientAxios("/zzf-clients");
 
   return {
     props: {
       products: products.data,
-      officeCount: officeCount.data,
-      page: page.data[0],
-      blogs: blogs.data,
-      blogCategories: blogCategories.data,
+      // officeCount: officeCount.data,
+      // page: page.data[0],
+      // blogs: blogs.data,
+      // blogCategories: blogCategories.data,
       distributors: distributors.data,
     },
   };

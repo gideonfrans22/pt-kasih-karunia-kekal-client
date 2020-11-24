@@ -1,6 +1,6 @@
 const Axios = require("axios");
 
-export const baseURL = "https://admin.kasihkaruniakekalpt.com";
+export const baseURL = "http://api.goent26.com";
 
 export const clientAxios = Axios.create({
   baseURL,
