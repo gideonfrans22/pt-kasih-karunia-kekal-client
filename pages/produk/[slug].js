@@ -40,8 +40,7 @@ function Movie({ product, offices }) {
 
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(product)
-
+  console.log(product);
 
   return (
     <>
@@ -129,7 +128,9 @@ function Movie({ product, offices }) {
                 )}
               </div>
               <div className="col-md-6 mb-4">
-                <h1 className="h5 font-weight-bold text-dark">{product.nama}</h1>
+                <h1 className="h5 font-weight-bold text-dark">
+                  {product.nama}
+                </h1>
                 <p>{product.deskripsi_singkat}</p>
                 {product.dokumen ? (
                   <a
@@ -171,14 +172,16 @@ function Movie({ product, offices }) {
               </div>
               <div className="col-md-12 mb-4">
                 <div className="card">
-                  <div className="card-header text-dark font-weight-bold">Deskripsi {product.nama}</div>
+                  <div className="card-header text-dark font-weight-bold">
+                    Deskripsi {product.nama}
+                  </div>
                   <div className="card-body">
                     {product.zzf_produk_kategori ? (
                       <a
                         href="#!"
                         className="badge badge-secondary d-inline-block mb-4"
                       >
-                       {product.zzf_produk_kategori.nama}
+                        {product.zzf_produk_kategori.nama}
                       </a>
                     ) : null}
                     <div className="content">
@@ -264,7 +267,8 @@ function Movie({ product, offices }) {
             </p>
             <p className="small">
               Belanja online di PT. ZZF Industri Indonesia semakin aman dan
-              mudah karena langsung terhubung ke kontak Whatsapp PT. ZZF Industri Indonesia. Tidak perlu takut untuk beli
+              mudah karena langsung terhubung ke kontak Whatsapp PT. ZZF
+              Industri Indonesia. Tidak perlu takut untuk beli
               {product.nama} dan melakukan pembayaran, karena semua komunikasi
               di PT. ZZF Industri Indonesia dienkripsi dengan teknologi SSL.
             </p>
@@ -295,18 +299,18 @@ function Movie({ product, offices }) {
               Beli {product.nama} terbaru
             </h6>
             <p className="small">
-              Dapatkan dan beli {product.nama} terbaru di PT Kasih Karunia
-              Kekal.
-              {product.nama} merupakan pilihan yang tepat untuk anda, baik untuk
-              pribadi ataupun bisnis. Untuk membeli {product.nama} terbaru, Anda
-              tidak perlu mengunjungi toko atau khawatir bagaimana membawa
-              pulang produk pesanan anda dengan aman, karena tim kami akan
-              mengantarkan produk yang anda pilih ke lokasi tujuan.
+              Dapatkan dan beli {product.nama} terbaru di PT. ZZF Industri
+              Indonesia{product.nama} merupakan pilihan yang tepat untuk anda,
+              baik untuk pribadi ataupun bisnis. Untuk membeli {product.nama}{" "}
+              terbaru, Anda tidak perlu mengunjungi toko atau khawatir bagaimana
+              membawa pulang produk pesanan anda dengan aman, karena tim kami
+              akan mengantarkan produk yang anda pilih ke lokasi tujuan.
             </p>
             <p className="small">
               Belanja online di PT. ZZF Industri Indonesia semakin murah karena
-              sering ada promo yang dapat diikuti oleh semua member PT. ZZF Industri Indonesia. Segera miliki {product.nama} termurah dan terbaru
-              hanya di PT. ZZF Industri Indonesia.
+              sering ada promo yang dapat diikuti oleh semua member PT. ZZF
+              Industri Indonesia. Segera miliki {product.nama} termurah dan
+              terbaru hanya di PT. ZZF Industri Indonesia.
             </p>
           </div>
         </div>
