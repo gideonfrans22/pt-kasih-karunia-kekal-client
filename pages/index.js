@@ -1,6 +1,7 @@
 import { clientAxios, baseURL } from "../client";
 import ProductList from "components/ProductList";
 import Link from "next/link";
+import _ from "lodash";
 
 export default function Home({
   page,
@@ -14,7 +15,6 @@ export default function Home({
     <main>
       <div className="jumbotron jumbotron-fluid mb-0 index-page">
         <div className="container">
-          {console.log(distributors)}
           <h1>{page.judul_halaman}</h1>
           <p className="lead">{page.deskripsi_halaman}</p>
         </div>
@@ -103,8 +103,6 @@ export default function Home({
           <h3 className="mb-4">Artikel terkini untuk anda</h3>
           <p>Pilih berdasarkan kategori dibawah.</p>
         </div>
-        {console.log(blogs)}
-        {console.log(blogCategories)}
         <div className="container">
           {blogCategories.map((category) => {
             return (
@@ -201,7 +199,7 @@ export default function Home({
 
 export async function getServerSideProps() {
   const products = await clientAxios(
-    "/products?_limit=8&_sort=created_at:DESC"
+    "/products?id_in=26&id_in=18&id_in=15&id_in=14&id_in=13&id_in=10&id_in=7&id_in=9"
   );
   const blogCategories = await clientAxios("/blog-categories");
   const blogs = await clientAxios("/blogs?_sort=created_at:DESC");
