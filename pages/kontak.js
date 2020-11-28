@@ -157,12 +157,14 @@ export default function Kontak({ page, offices }) {
                         {office.telepon ? (
                           <li className="list-group-item">
                             <i className="fas fa-phone mr-4"></i>
+                            {office.telepon}
                           </li>
                         ) : null}
 
                         {office.fax ? (
                           <li className="list-group-item">
                             <i className="fas fa-fax mr-4"></i>
+                            {office.fax}
                           </li>
                         ) : null}
                       </ul>
