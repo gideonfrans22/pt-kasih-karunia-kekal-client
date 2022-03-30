@@ -223,12 +223,14 @@ function Movie({ product, offices }) {
               <div className="card-body">
                 <ul className="list-group list-group-flush">
                   {offices.map((office) => {
-                    return (
-                      <li className="list-group-item" key={office.id}>
-                        <i className="fas fa-phone mr-2"></i>
-                        {office.telepon}
-                      </li>
-                    );
+                    if (office.telepon) {
+                      return (
+                        <li className="list-group-item" key={office.id}>
+                          <i className="fas fa-phone mr-2"></i>
+                          {office.telepon}
+                        </li>
+                      );
+                    }
                   })}
                 </ul>
               </div>

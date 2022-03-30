@@ -161,14 +161,19 @@ export default function Kontak({ page, offices }) {
                           <i className="fas fa-mail-bulk mr-4"></i>
                           {office.kode_pos}
                         </li>
-                        <li className="list-group-item">
-                          <i className="fas fa-phone mr-4"></i>
-                          {office.telepon}
-                        </li>
-                        <li className="list-group-item">
-                          <i className="fas fa-fax mr-4"></i>
-                          {office.fax}
-                        </li>
+                        {office.telepon ? (
+                          <li className="list-group-item">
+                            <i className="fas fa-phone mr-4"></i>
+                            {office.telepon}
+                          </li>
+                        ) : null}
+
+                        {office.fax ? (
+                          <li className="list-group-item">
+                            <i className="fas fa-fax mr-4"></i>
+                            {office.fax}
+                          </li>
+                        ) : null}
                       </ul>
                     </div>
                   );
