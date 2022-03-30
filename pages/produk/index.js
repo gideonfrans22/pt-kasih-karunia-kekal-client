@@ -28,10 +28,10 @@ const index = ({ page, products, categories }) => {
       </div>
 
       <div className="container py-5">
-        <h3 className="text-dark">Cari Produk</h3>
+        <h3 className="text-dark"> Search Products</h3>
         <form onClick={handleSubmit}>
           <label class="sr-only" for="search">
-            Cari Produk
+            Search Products
           </label>
           <div className="d-flex mb-4">
             <div class="input-group">
@@ -41,12 +41,12 @@ const index = ({ page, products, categories }) => {
                 id="search"
                 onChange={(e) => searchProduct(e.target.value)}
               />
-              <button className="btn btn-danger">Cari</button>
+              <button className="btn btn-danger">Search</button>
             </div>
           </div>
         </form>
         <div className="mb-4">
-          <h3 className="text-dark">Kategori Produk</h3>
+          <h3 className="text-dark">Product Categories</h3>
           {categories?.map((category) => {
             return (
               <Link

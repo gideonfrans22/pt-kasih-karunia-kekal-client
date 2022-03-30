@@ -1,6 +1,36 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Navigation = () => {
+  const [menuAktif, setMenuAktif] = useState("/");
+
+  useEffect(() => {
+    setMenuAktif(window.location.pathname);
+  }, [menuAktif]);
+
+  const headerMenus = [
+    {
+      isDropdown: false,
+      text: "Profile",
+      url: `/profil`,
+    },
+    {
+      isDropdown: false,
+      text: "Products",
+      url: `/produk`,
+    },
+    {
+      isDropdown: false,
+      text: "Contact",
+      url: `/kontak`,
+    },
+    {
+      isDropdown: false,
+      text: "Verification",
+      url: `/verification`,
+    },
+  ];
+
   return (
     <header>
       {/* <div className="gray py-2">
@@ -20,7 +50,9 @@ const Navigation = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light py-4">
         <div className="container">
           <Link href="/">
-            <h6 className="font-weight-bold m-0 pointer text-dark">PT ZZF Industri Indonesia</h6>
+            <h6 className="font-weight-bold m-0 pointer text-dark">
+              PT ZZF Industri Indonesia
+            </h6>
           </Link>
           <button
             className="navbar-toggler"
@@ -36,26 +68,34 @@ const Navigation = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto">
-              <li className="nav-item">
-                <Link href="/profil">
-                  <a className="nav-link">Profile</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/produk">
-                  <a className="nav-link">Products</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/kontak">
-                  <a className="nav-link">Contact</a>
-                </Link>
-              </li>
+              {headerMenus?.map((menu, idx) => {
+                return (
+                  <li
+                    className="nav-item py-lg-1 py-2"
+                    key={idx}
+                    style={{ paddingLeft: "12px", paddingRight: "12px" }}
+                  >
+                    <Link href={menu.url}>
+                      <a
+                        {...(menuAktif == menu.url
+                          ? {
+                              className: "nav-link p-0 fw-bold active",
+                              "aria-current": "page",
+                            }
+                          : { className: "nav-link p-0 fw-bold" })}
+                        onClick={() => setMenuAktif(menu.url)}
+                      >
+                        {menu.text}
+                      </a>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a
-                  className="nav-link btn btn-danger py-2 px-4 text-white font-weight-bold"
+                  className="btn btn-danger py-2 px-4 text-white font-weight-bold"
                   href={`https://api.whatsapp.com/send?phone=62818961343&text=${"Halo , saya tertarik dengan tower crane yang bapak miliki http://zzf.co.id"}`}
                 >
                   FREE Whatsapp
