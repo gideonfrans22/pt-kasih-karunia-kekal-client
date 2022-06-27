@@ -27,6 +27,15 @@ class MyDocument extends Document {
             integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
             crossorigin="anonymous"
           />
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-156577863-1"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-156577863-1');`,
+            }}
+          />
         </Head>
         <body>
           <Main />
@@ -46,7 +55,10 @@ class MyDocument extends Document {
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"
           />
-          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          <script
+            type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          ></script>
           <script src="/js/app.js"></script>
         </body>
       </Html>
