@@ -213,9 +213,10 @@ export async function getServerSideProps() {
   const distributors = await clientAxios("/distributors");
 
   const SEO = {
-    title: page?.judul_halaman || "PT Kasih Karunia Kekal",
+    title: page.data[0]?.judul_halaman || "PT Kasih Karunia Kekal",
     description:
-      page?.deskripsi_halaman || "Distributor alat kesehatan sejak 1999",
+      page.data[0]?.deskripsi_halaman ||
+      "Distributor alat kesehatan sejak 1999",
     canonical: "https://kasihkaruniakekalpt.com/",
     openGraph: {
       type: "website",
