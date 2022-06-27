@@ -18,7 +18,12 @@ export default function Kontak({ page, offices, SEO }) {
   };
   return (
     <>
-      <NextSeo {...SEO} />
+      <NextSeo
+        {...SEO}
+        additionalLinkTags={[
+          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/kontak" },
+        ]}
+      />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 produk-page">
           <div className="container">

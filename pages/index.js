@@ -15,7 +15,12 @@ export default function Home({
 }) {
   return (
     <>
-      <NextSeo {...SEO} />
+      <NextSeo
+        {...SEO}
+        additionalLinkTags={[
+          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/" },
+        ]}
+      />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 index-page">
           <div className="container">

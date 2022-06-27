@@ -21,7 +21,12 @@ const index = ({ page, products, categories, SEO }) => {
 
   return (
     <>
-      <NextSeo {...SEO} />
+      <NextSeo
+        {...SEO}
+        additionalLinkTags={[
+          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/produk" },
+        ]}
+      />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 produk-page">
           <div className="container">

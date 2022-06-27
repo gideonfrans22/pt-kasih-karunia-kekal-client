@@ -4,7 +4,12 @@ import { baseURL, clientAxios } from "../client";
 export default function Profil({ page, offices, SEO }) {
   return (
     <>
-      <NextSeo {...SEO} />
+      <NextSeo
+        {...SEO}
+        additionalLinkTags={[
+          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/profil" },
+        ]}
+      />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 profil-page">
           <div className="container">
