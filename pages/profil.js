@@ -129,11 +129,10 @@ export async function getServerSideProps() {
   const offices = await clientAxios("/offices?_sort=created_at:DESC");
   const page = await clientAxios("/pages?halaman=profil");
 
-  const deskripsi = `${
-    page.data[0]?.deskripsi_halaman
-  } - Direktur PT Kasih Karunia Kekal Frans Limantoni. Office Kami: ${offices.data
-    ?.map((office) => office.kota)
-    .toString()}`;
+  const deskripsi =
+    `${page.data[0]?.deskripsi_halaman} - Direktur PT Kasih Karunia Kekal Frans Limantoni. Office Kami: `.concat(
+      offices.data?.map((office) => office.kota).toString()
+    );
   const SEO = {
     title: "Profil",
     description: deskripsi || "Berdiri sejak 1999",
