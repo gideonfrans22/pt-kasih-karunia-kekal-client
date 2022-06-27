@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import { baseURL, clientAxios } from "../client";
 
 export default function Profil({ page, offices, SEO }) {
