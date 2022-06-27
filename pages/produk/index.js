@@ -95,7 +95,7 @@ export async function getServerSideProps() {
     description:
       deskripsi ||
       "pulse Oximeter, pulse Oxymeter, meja Operasi, Instrumen Bedah, Oxygen generator",
-    canonical: "https://kasihkaruniakekalpt.com/produk",
+    canonical: "https://www.kasihkaruniakekalpt.com/produk",
     openGraph: {
       type: "website",
       locale: "en_IE",

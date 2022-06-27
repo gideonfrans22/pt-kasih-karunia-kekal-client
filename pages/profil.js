@@ -137,7 +137,7 @@ export async function getServerSideProps() {
   const SEO = {
     title: "Profil",
     description: deskripsi || "Berdiri sejak 1999",
-    canonical: "https://kasihkaruniakekalpt.com/profil",
+    canonical: "https://www.kasihkaruniakekalpt.com/profil",
     openGraph: {
       type: "website",
       locale: "en_IE",

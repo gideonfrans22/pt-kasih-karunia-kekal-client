@@ -217,7 +217,7 @@ export async function getServerSideProps() {
     description:
       page.data[0]?.deskripsi_halaman ||
       "Distributor alat kesehatan sejak 1999",
-    canonical: "https://kasihkaruniakekalpt.com/",
+    canonical: "https://www.kasihkaruniakekalpt.com/",
     openGraph: {
       type: "website",
       locale: "en_IE",
