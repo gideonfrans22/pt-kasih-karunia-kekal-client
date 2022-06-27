@@ -87,12 +87,13 @@ export async function getServerSideProps() {
   const page = await clientAxios("/pages/4");
   const categories = await clientAxios(`/product-categories`);
 
+  const deskripsi =
+    `Produk-produk yang kami tawarkan: ` +
+    products.data?.map((product) => product?.nama?.substring(0, 15)).toString();
   const SEO = {
     title: "Produk",
     description:
-      products.data
-        ?.map((product) => product?.nama?.substring(0, 15))
-        .toString() ||
+      deskripsi ||
       "pulse Oximeter, pulse Oxymeter, meja Operasi, Instrumen Bedah, Oxygen generator",
     canonical: "https://kasihkaruniakekalpt.com/produk",
     openGraph: {
