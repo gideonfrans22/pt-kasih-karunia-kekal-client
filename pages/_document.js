@@ -27,7 +27,7 @@ class MyDocument extends Document {
             integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
             crossorigin="anonymous"
           />
-          <script
+          {/* <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-156577863-1"
           ></script>
@@ -35,7 +35,7 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-156577863-1');`,
             }}
-          />
+          /> */}
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-P9TEZ8LQN2"
