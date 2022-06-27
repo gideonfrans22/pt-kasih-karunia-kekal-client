@@ -2,6 +2,7 @@ import { clientAxios, baseURL } from "../client";
 import ProductList from "components/ProductList";
 import Link from "next/link";
 import _ from "lodash";
+import { NextSeo } from "next-seo";
 
 export default function Home({
   page,
@@ -10,9 +11,11 @@ export default function Home({
   blogCategories,
   officeCount,
   distributors,
+  SEO,
 }) {
   return (
     <main>
+      <NextSeo {...SEO} />
       <div className="jumbotron jumbotron-fluid mb-0 index-page">
         <div className="container">
           <h1>{page.judul_halaman}</h1>
@@ -207,6 +210,19 @@ export async function getServerSideProps() {
   const officeCount = await clientAxios("/offices/count");
   const distributors = await clientAxios("/distributors");
 
+  const SEO = {
+    title: page?.judul_halaman || "PT Kasih Karunia Kekal",
+    description:
+      page?.deskripsi_halaman || "Distributor alat kesehatan sejak 1999",
+    canonical: "https://kasihkaruniakekalpt.com/",
+    openGraph: {
+      type: "website",
+      locale: "en_IE",
+      url: "https://kasihkaruniakekalpt.com",
+      site_name: "PT Kasih Karunia Kekal",
+    },
+  };
+
   return {
     props: {
       products: products.data,
@@ -215,6 +231,7 @@ export async function getServerSideProps() {
       blogs: blogs.data,
       blogCategories: blogCategories.data,
       distributors: distributors.data,
+      SEO: SEO,
     },
   };
 }
