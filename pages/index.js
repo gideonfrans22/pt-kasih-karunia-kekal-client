@@ -213,7 +213,7 @@ export async function getServerSideProps() {
   const distributors = await clientAxios("/distributors");
 
   const SEO = {
-    title: page.data[0]?.judul_halaman || "PT Kasih Karunia Kekal",
+    title: "PT Kasih Karunia Kekal",
     description:
       page.data[0]?.deskripsi_halaman ||
       "Distributor alat kesehatan sejak 1999",

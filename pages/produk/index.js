@@ -88,7 +88,7 @@ export async function getServerSideProps() {
   const categories = await clientAxios(`/product-categories`);
 
   const SEO = {
-    title: page.data?.judul_halaman || "Daftar Alat kesehatan",
+    title: "Produk",
     description:
       products.data
         ?.map((product) => product?.nama?.substring(0, 15))
