@@ -216,12 +216,16 @@ export async function getServerSideProps() {
   const page = await clientAxios("/pages?halaman=home");
   const officeCount = await clientAxios("/offices/count");
   const distributors = await clientAxios("/distributors");
+  const categories = await clientAxios(`/product-categories`);
 
+  const deskripsi =
+    page.data[0]?.deskripsi_halaman +
+    `. Mendistribusikan alat ${categories?.data
+      ?.map((category) => category?.nama)
+      ?.join(", ")}`;
   const SEO = {
     title: "PT Kasih Karunia Kekal",
-    description:
-      page.data[0]?.deskripsi_halaman ||
-      "Distributor alat kesehatan sejak 1999",
+    description: deskripsi || "Distributor alat kesehatan sejak 1999",
     canonical: "https://www.kasihkaruniakekalpt.com/",
     openGraph: {
       type: "website",
