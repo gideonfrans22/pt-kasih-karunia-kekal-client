@@ -222,7 +222,7 @@ export async function getServerSideProps() {
     page.data[0]?.deskripsi_halaman +
     `. Mendistribusikan alat ${categories?.data
       ?.map((category) => category?.nama)
-      ?.join(", ")}`;
+      ?.join(" | ")}`;
   const SEO = {
     title: "PT Kasih Karunia Kekal",
     description: deskripsi || "Distributor alat kesehatan sejak 1999",
