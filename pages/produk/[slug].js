@@ -315,7 +315,7 @@ export async function getServerSideProps({ query: { slug } }) {
   const SEO = {
     title: `${product.nama} | PT Kasih Karunia Kekal`,
     description: deskripsi,
-
+    canonical: `https://www.kasihkaruniakekalpt.com/produk/${slug}`,
     openGraph: {
       title: `${product.nama} | PT Kasih Karunia Kekal`,
       description: deskripsi,
