@@ -27,17 +27,7 @@ try {
   console.log(err);
 }
 
-function Movie({ product, offices }) {
-  const SEO = {
-    title: `PT Kasih Karunia Kekal | ${product.nama}`,
-    description: product.deskripsi_singkat,
-
-    openGraph: {
-      title: `PT Kasih Karunia Kekal | ${product.nama}`,
-      description: product.deskripsi_singkat,
-    },
-  };
-
+function Movie({ product, offices, SEO }) {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -319,10 +309,24 @@ export async function getServerSideProps({ query: { slug } }) {
   const res = await clientAxios(`/products?slug=${slug}`);
   const offices = await clientAxios("/offices");
 
+  const product = res.data[0] || null;
+
+  const deskripsi = `${product.nama} | ${product.deskripsi_singkat}. ${product.nama} yang Anda beli di PT Kasih Karunia Kekal merupakan produk original dengan kualitas terjamin. PT Kasih Karunia Kekal memastikan konsumen hanya menerima ${product.nama} asli.`;
+  const SEO = {
+    title: `${product.nama} | PT Kasih Karunia Kekal`,
+    description: deskripsi,
+
+    openGraph: {
+      title: `${product.nama} | PT Kasih Karunia Kekal`,
+      description: deskripsi,
+    },
+  };
+
   return {
     props: {
-      product: res.data[0] || null,
+      product,
       offices: offices.data,
+      SEO,
     },
   };
 }
