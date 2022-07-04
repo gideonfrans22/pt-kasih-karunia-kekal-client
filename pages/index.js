@@ -15,12 +15,7 @@ export default function Home({
 }) {
   return (
     <>
-      <NextSeo
-        {...SEO}
-        additionalLinkTags={[
-          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/" },
-        ]}
-      />
+      <NextSeo {...SEO} />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 index-page">
           <div className="container">
@@ -226,7 +221,7 @@ export async function getServerSideProps() {
   const SEO = {
     title: "PT Kasih Karunia Kekal",
     description: deskripsi || "Distributor alat kesehatan sejak 1999",
-    canonical: "https://www.kasihkaruniakekalpt.com/",
+    canonical: "https://kasihkaruniakekalpt.com/",
     openGraph: {
       type: "website",
       locale: "en_IE",

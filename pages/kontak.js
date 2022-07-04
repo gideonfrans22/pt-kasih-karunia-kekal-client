@@ -18,12 +18,7 @@ export default function Kontak({ page, offices, SEO }) {
   };
   return (
     <>
-      <NextSeo
-        {...SEO}
-        additionalLinkTags={[
-          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/kontak" },
-        ]}
-      />
+      <NextSeo {...SEO} />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 produk-page">
           <div className="container">
@@ -199,7 +194,7 @@ export async function getServerSideProps() {
     description:
       deskripsi ||
       "pulse Oximeter, pulse Oxymeter, meja Operasi, Instrumen Bedah, Oxygen generator",
-    canonical: "https://www.kasihkaruniakekalpt.com/kontak",
+    canonical: "https://kasihkaruniakekalpt.com/kontak",
     openGraph: {
       type: "website",
       locale: "en_IE",

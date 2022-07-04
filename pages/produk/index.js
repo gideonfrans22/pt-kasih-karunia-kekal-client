@@ -21,12 +21,7 @@ const index = ({ page, products, categories, SEO }) => {
 
   return (
     <>
-      <NextSeo
-        {...SEO}
-        additionalLinkTags={[
-          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/produk" },
-        ]}
-      />
+      <NextSeo {...SEO} />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 produk-page">
           <div className="container">
@@ -100,7 +95,7 @@ export async function getServerSideProps() {
     description:
       deskripsi ||
       "pulse Oximeter, pulse Oxymeter, meja Operasi, Instrumen Bedah, Oxygen generator",
-    canonical: "https://www.kasihkaruniakekalpt.com/produk",
+    canonical: "https://kasihkaruniakekalpt.com/produk",
     openGraph: {
       type: "website",
       locale: "en_IE",

@@ -4,12 +4,7 @@ import { baseURL, clientAxios } from "../client";
 export default function Profil({ page, offices, SEO }) {
   return (
     <>
-      <NextSeo
-        {...SEO}
-        additionalLinkTags={[
-          { rel: "canonical", href: "https://kasihkaruniakekalpt.com/profil" },
-        ]}
-      />
+      <NextSeo {...SEO} />
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 profil-page">
           <div className="container">
@@ -142,7 +137,7 @@ export async function getServerSideProps() {
   const SEO = {
     title: "Profil",
     description: deskripsi || "Berdiri sejak 1999",
-    canonical: "https://www.kasihkaruniakekalpt.com/profil",
+    canonical: "https://kasihkaruniakekalpt.com/profil",
     openGraph: {
       type: "website",
       locale: "en_IE",
