@@ -95,9 +95,25 @@ export default function Home({
           <h3 className="mb-4">Produk Telah diregistrasi oleh Kemenkes</h3>
           <div className="row">
             {products.length
-              ? products.map((product) => {
-                  return <ProductList key={product.id} product={product} />;
-                })
+              ? products
+                  .sort((current, next) => {
+                    if (
+                      current?.gallery[0]?.url?.includes(".mp4") &&
+                      !next?.gallery[0]?.url?.includes(".mp4")
+                    ) {
+                      return -1;
+                    }
+                    if (
+                      !current?.gallery[0]?.url?.includes(".mp4") &&
+                      next?.gallery[0]?.url?.includes(".mp4")
+                    ) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((product) => {
+                    return <ProductList key={product.id} product={product} />;
+                  })
               : "Tidak ada data"}
           </div>
         </div>

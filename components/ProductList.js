@@ -25,16 +25,32 @@ try {
 
 const ProductList = ({ product }) => {
   return (
-    <div className="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <div
+      className={
+        product?.gallery[0]?.url?.includes(".mp4")
+          ? "col-sm-12 col-md-8 col-lg-6 mb-4"
+          : "col-sm-6 col-md-4 col-lg-3 mb-4"
+      }
+    >
       <div className="card h-100">
         <div className="relative">
           <Link href="/produk/[slug]" as={`/produk/${product.slug}`}>
             <a className="text-body">
-              <img
-                src={baseURL + product?.gallery[0]?.url}
-                className="card-img-top square-img hover-zoom"
-                alt={product.nama}
-              />
+              {product?.gallery[0]?.url?.includes(".mp4") ? (
+                <video
+                  src="https://admin.kasihkaruniakekalpt.com/uploads/Morning_Walk_fac2a4c913.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  style={{ maxWidth: "100%" }}
+                ></video>
+              ) : (
+                <img
+                  src={baseURL + product?.gallery[0]?.url}
+                  className="card-img-top square-img hover-zoom"
+                  alt={product.nama}
+                />
+              )}
             </a>
           </Link>
           {typeof product.product_type === Object ? (
