@@ -53,12 +53,22 @@ function Movie({ product, offices, SEO }) {
                           }
                           key={gallery.id}
                         >
-                          <img
-                            onClick={() => setIsOpen(true)}
-                            src={baseURL + gallery.url}
-                            className="d-block w-100 square-img pointer"
-                            alt={gallery.name}
-                          />
+                          {gallery.url.includes(".mp4") ? (
+                            <video
+                              src={baseURL + gallery.url}
+                              autoPlay
+                              muted
+                              loop
+                              style={{ maxWidth: "100%" }}
+                            ></video>
+                          ) : (
+                            <img
+                              onClick={() => setIsOpen(true)}
+                              src={baseURL + gallery.url}
+                              className="d-block w-100 square-img pointer"
+                              alt={gallery.name}
+                            />
+                          )}
                         </div>
                       );
                     })}
