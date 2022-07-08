@@ -25,13 +25,14 @@ try {
 }
 
 function Kategori({ product }) {
+  const deskripsi = `Distributor resmi ${product.nama}. Menjual ${product.deskripsi_singkat}`;
   const SEO = {
     title: `PT Kasih Karunia Kekal | ${product.nama}`,
-    description: product.deskripsi_singkat,
+    description: deskripsi,
 
     openGraph: {
       title: `PT Kasih Karunia Kekal | ${product.nama}`,
-      description: product.deskripsi_singkat,
+      description: deskripsi,
     },
   };
 

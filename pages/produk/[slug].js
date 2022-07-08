@@ -175,7 +175,7 @@ function Movie({ product, offices, SEO }) {
                           product.deskripsi_lengkap
                             ? product.deskripsi_lengkap.replace(
                                 "/uploads",
-                                "http://128.199.182.224:1337/uploads"
+                                "https://admin.kasihkaruniakekalpt.com/uploads"
                               )
                             : null
                         }
