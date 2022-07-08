@@ -38,7 +38,7 @@ const ProductList = ({ product }) => {
             <a className="text-body">
               {product?.gallery[0]?.url?.includes(".mp4") ? (
                 <video
-                  src="https://admin.kasihkaruniakekalpt.com/uploads/Morning_Walk_fac2a4c913.mp4"
+                  src={baseURL + product?.gallery[0]?.url}
                   autoPlay
                   muted
                   loop
