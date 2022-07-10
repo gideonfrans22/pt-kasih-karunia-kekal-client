@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { baseURL } from "../client";
 const numeral = require("numeral");
+const videoExtensions = ["mp4", "m4v"];
+
 try {
   numeral.register("locale", "id", {
     delimiters: {
@@ -36,7 +38,9 @@ const ProductList = ({ product }) => {
         <div className="relative">
           <Link href="/produk/[slug]" as={`/produk/${product.slug}`}>
             <a className="text-body">
-              {product?.gallery[0]?.url?.includes(".mp4") ? (
+              {videoExtensions.includes(
+                product?.gallery[0]?.url.split(".").pop().toLowerCase()
+              ) ? (
                 <video
                   src={baseURL + product?.gallery[0]?.url}
                   autoPlay
