@@ -104,9 +104,33 @@ export async function getServerSideProps() {
     },
   };
 
+  const videoExtensions = ["mp4", "m4v"];
+
   return {
     props: {
-      products: products.data,
+      products: products.data.sort((current, next) => {
+        const currentExtension = current?.gallery[0]?.url
+          .split(".")
+          .pop()
+          .toLowerCase();
+        const nextExtension = next?.gallery[0]?.url
+          .split(".")
+          .pop()
+          .toLowerCase();
+        if (
+          videoExtensions.includes(currentExtension) &&
+          !videoExtensions?.includes(nextExtension)
+        ) {
+          return -1;
+        }
+        if (
+          !videoExtensions.includes(currentExtension) &&
+          videoExtensions?.includes(nextExtension)
+        ) {
+          return 1;
+        }
+        return 0;
+      }),
       page: page.data,
       categories: categories.data,
       SEO: SEO,
