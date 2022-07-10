@@ -70,12 +70,13 @@ export default function Kontak({ page, offices, SEO }) {
             <div className="col-md-6">
               <h3 className="mb-4">Office Pusat</h3>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.734888806025!2d106.8719315153467!3d-6.166246262148849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5010970eee9%3A0xf9dd2148b5e84264!2sPT%20Kasih%20Karunia%20Kekal%20Jakarta!5e0!3m2!1sen!2sid!4v1597245681688!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1983.3732158457804!2d106.87389071664353!3d-6.164702862150835!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f542ebc9ba19%3A0x4f4cfef227a5e686!2sPT.%203K!5e0!3m2!1sen!2sid!4v1657439417816!5m2!1sen!2sid"
                 width="100%"
                 height="400"
                 frameborder="0"
                 allowFullScreen=""
                 aria-hidden="false"
+                loading="lazy"
                 tabIndex="0"
               ></iframe>
             </div>
