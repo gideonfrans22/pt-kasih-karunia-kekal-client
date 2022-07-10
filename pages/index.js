@@ -3,6 +3,7 @@ import ProductList from "components/ProductList";
 import Link from "next/link";
 import _ from "lodash";
 import { NextSeo } from "next-seo";
+const videoExtensions = ["mp4", "m4v"];
 
 export default function Home({
   page,
@@ -97,15 +98,23 @@ export default function Home({
             {products.length
               ? products
                   .sort((current, next) => {
+                    const currentExtension = current?.gallery[0]?.url
+                      .split(".")
+                      .pop()
+                      .toLowerCase();
+                    const nextExtension = next?.gallery[0]?.url
+                      .split(".")
+                      .pop()
+                      .toLowerCase();
                     if (
-                      current?.gallery[0]?.url?.includes(".mp4") &&
-                      !next?.gallery[0]?.url?.includes(".mp4")
+                      videoExtensions.includes(currentExtension) &&
+                      !videoExtensions?.includes(nextExtension)
                     ) {
                       return -1;
                     }
                     if (
-                      !current?.gallery[0]?.url?.includes(".mp4") &&
-                      next?.gallery[0]?.url?.includes(".mp4")
+                      !videoExtensions.includes(currentExtension) &&
+                      videoExtensions?.includes(nextExtension)
                     ) {
                       return 1;
                     }
