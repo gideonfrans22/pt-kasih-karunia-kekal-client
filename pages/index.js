@@ -18,79 +18,81 @@ export default function Home({
     <>
       <NextSeo {...SEO} />
       <main>
-        <div className="jumbotron jumbotron-fluid mb-0 index-page">
-          <div className="container">
-            <h1>{page.judul_halaman}</h1>
-            <p className="lead">{page.deskripsi_halaman}</p>
+        <div className="d-none d-lg-block">
+          <div className="jumbotron jumbotron-fluid mb-0 index-page">
+            <div className="container">
+              <h1>{page.judul_halaman}</h1>
+              <p className="lead">{page.deskripsi_halaman}</p>
+            </div>
           </div>
-        </div>
 
-        <section className="pt-4 bg-light">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-6 col-md-3 mb-4">
-                <div
-                  className="shadow-sm p-3 bg-white rounded"
-                  style={{ minHeight: 120 }}
-                >
-                  <div className="row">
-                    <div className="col-12 text-center">
-                      <i className="fas fa-syringe h2 text-info"></i>
-                    </div>
-                    <div className="col-12 text-center">
-                      Distributor alat kesehatan terpercaya sejak 1999
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 mb-4">
-                <div
-                  className="shadow-sm p-3 bg-white rounded"
-                  style={{ minHeight: 120 }}
-                >
-                  <div className="row">
-                    <div className="col-12 text-center">
-                      <i className="fab fa-whatsapp h2 text-primary"></i>
-                    </div>
-                    <div className="col-12 text-center">
-                      Free Konsultasi 24/7 via Whatsapp
+          <section className="pt-4 bg-light">
+            <div className="container">
+              <div className="row">
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fas fa-syringe h2 text-info"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        Distributor alat kesehatan terpercaya sejak 1999
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-sm-6 col-md-3 mb-4">
-                <div
-                  className="shadow-sm p-3 bg-white rounded"
-                  style={{ minHeight: 120 }}
-                >
-                  <div className="row">
-                    <div className="col-12 text-center">
-                      <i className="fas fa-city h2 text-warning"></i>
-                    </div>
-                    <div className="col-12 text-center">
-                      {officeCount} kantor tersebar di seluruh Indonesia
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fab fa-whatsapp h2 text-primary"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        Free Konsultasi 24/7 via Whatsapp
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-sm-6 col-md-3 mb-4">
-                <div
-                  className="shadow-sm p-3 bg-white rounded"
-                  style={{ minHeight: 120 }}
-                >
-                  <div className="row">
-                    <div className="col-12 text-center">
-                      <i className="fas fa-heart text-danger h2"></i>
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fas fa-city h2 text-warning"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        {officeCount} kantor tersebar di seluruh Indonesia
+                      </div>
                     </div>
-                    <div className="col-12 text-center">
-                      Kepuasan pelanggan adalah No.1 untuk kami
+                  </div>
+                </div>
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fas fa-heart text-danger h2"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        Kepuasan pelanggan adalah No.1 untuk kami
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <div className="container py-5">
           <h3 className="mb-4">Produk Telah diregistrasi oleh Kemenkes</h3>
@@ -125,6 +127,102 @@ export default function Home({
                   })
               : "Tidak ada data"}
           </div>
+
+          <div className="container mt-4">
+            <h3>Distributor Kami</h3>
+            <div className="row">
+              {distributors.map((distributor) => {
+                return (
+                  <div className="col-md-2 mb-4">
+                    <img
+                      src={`${baseURL + distributor.logo?.url}`}
+                      alt={distributor.nama}
+                      title={distributor.nama}
+                      width="100%"
+                      height="100px"
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="d-block d-lg-none">
+          <div className="d-none d-md-block jumbotron jumbotron-fluid mb-0 index-page">
+            <div className="container">
+              <h1>{page.judul_halaman}</h1>
+              <p className="lead">{page.deskripsi_halaman}</p>
+            </div>
+          </div>
+
+          <section className="pt-4 bg-light mb-4">
+            <div className="container">
+              <div className="row">
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fas fa-syringe h2 text-info"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        Distributor alat kesehatan terpercaya sejak 1999
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fab fa-whatsapp h2 text-primary"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        Free Konsultasi 24/7 via Whatsapp
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fas fa-city h2 text-warning"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        {officeCount} kantor tersebar di seluruh Indonesia
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-6 col-md-3 mb-4">
+                  <div
+                    className="shadow-sm p-3 bg-white rounded"
+                    style={{ minHeight: 120 }}
+                  >
+                    <div className="row">
+                      <div className="col-12 text-center">
+                        <i className="fas fa-heart text-danger h2"></i>
+                      </div>
+                      <div className="col-12 text-center">
+                        Kepuasan pelanggan adalah No.1 untuk kami
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
 
         <section>
@@ -196,26 +294,6 @@ export default function Home({
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="container mt-4">
-            <h3>Distributor Kami</h3>
-            <div className="row">
-              {distributors.map((distributor) => {
-                return (
-                  <div className="col-md-2 mb-4">
-                    <img
-                      src={`${baseURL + distributor.logo?.url}`}
-                      alt={distributor.nama}
-                      title={distributor.nama}
-                      width="100%"
-                      height="100px"
-                      style={{ objectFit: "contain" }}
-                    />
                   </div>
                 );
               })}
