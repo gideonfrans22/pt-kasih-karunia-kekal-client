@@ -26,10 +26,13 @@ try {
 }
 
 const ProductList = ({ product }) => {
+  const isVideo = videoExtensions.includes(
+    product?.gallery[0]?.url.split(".").pop().toLowerCase()
+  );
   return (
     <div
       className={
-        product?.gallery[0]?.url?.includes(".mp4")
+        isVideo
           ? "col-sm-12 col-md-8 col-lg-6 mb-4"
           : "col-sm-6 col-md-4 col-lg-3 mb-4"
       }
@@ -38,9 +41,7 @@ const ProductList = ({ product }) => {
         <div className="relative">
           <Link href="/produk/[slug]" as={`/produk/${product.slug}`}>
             <a className="text-body">
-              {videoExtensions.includes(
-                product?.gallery[0]?.url.split(".").pop().toLowerCase()
-              ) ? (
+              {isVideo ? (
                 <video
                   src={baseURL + product?.gallery[0]?.url}
                   autoPlay
