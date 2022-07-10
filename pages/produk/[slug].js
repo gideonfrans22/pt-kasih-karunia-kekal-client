@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 const numeral = require("numeral");
+const videoExtensions = ["mp4", "m4v"];
+
 try {
   numeral.register("locale", "id", {
     delimiters: {
@@ -46,6 +48,9 @@ function Movie({ product, offices, SEO }) {
                 >
                   <div className="carousel-inner">
                     {product.gallery.map((gallery, idx) => {
+                      const isVideo = videoExtensions.includes(
+                        gallery?.url.split(".").pop().toLowerCase()
+                      );
                       return (
                         <div
                           className={
@@ -53,7 +58,7 @@ function Movie({ product, offices, SEO }) {
                           }
                           key={gallery.id}
                         >
-                          {gallery.url.includes(".mp4") ? (
+                          {isVideo ? (
                             <video
                               src={baseURL + gallery.url}
                               autoPlay
