@@ -32,9 +32,7 @@ const ProductList = ({ product }) => {
   return (
     <div
       className={
-        isVideo
-          ? "col-sm-12 col-md-8 col-lg-6 mb-4"
-          : "col-sm-6 col-md-4 col-lg-3 mb-4"
+        isVideo ? "col-sm-12 col-md-6 mb-4" : "col-sm-6 col-md-4 col-lg-3 mb-4"
       }
     >
       <div className="card h-100">
