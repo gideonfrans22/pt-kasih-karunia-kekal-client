@@ -145,7 +145,7 @@ function Movie({ product, offices, SEO }) {
                 ) : (
                   ""
                 )}
-                {/* {product.diskon > 0 ? (
+                {product.diskon > 0 ? (
                   <>
                     <h5>
                       Rp
@@ -162,7 +162,7 @@ function Movie({ product, offices, SEO }) {
                   </>
                 ) : (
                   <h5>Rp{numeral(product.harga).format("0,0")}</h5>
-                )} */}
+                )}
                 <a
                   href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal, saya ingin membeli produk "}${
                     product.nama
