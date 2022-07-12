@@ -310,7 +310,7 @@ export default function Home({
 
 export async function getServerSideProps() {
   const products = await clientAxios(
-    "/products?id_in=26&id_in=18&id_in=15&id_in=14&id_in=13&id_in=10&id_in=7&id_in=9"
+    "/products?_sort=prioritas_tampil:DESC&_limit=8"
   );
   const blogCategories = await clientAxios("/blog-categories");
   const blogs = await clientAxios("/blogs?_sort=created_at:DESC");

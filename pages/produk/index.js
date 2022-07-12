@@ -83,7 +83,7 @@ const index = ({ page, products, categories, SEO }) => {
 };
 
 export async function getServerSideProps() {
-  const products = await clientAxios("/products?_sort=created_at:ASC");
+  const products = await clientAxios("/products?_sort=prioritas_tampil:DESC");
   const page = await clientAxios("/pages/4");
   const categories = await clientAxios(`/product-categories`);
 
