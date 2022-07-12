@@ -44,8 +44,11 @@ const Navigation = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
+          <div
+            className="collapse navbar-collapse show"
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav mr-auto align-items-center">
               <li className="nav-item">
                 <Link href="/">
                   <a className="nav-link">Beranda</a>
