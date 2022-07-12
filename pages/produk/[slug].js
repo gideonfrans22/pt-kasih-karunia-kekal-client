@@ -160,9 +160,9 @@ function Movie({ product, offices, SEO }) {
                       <span className="text-danger">-{product.diskon}%</span>
                     </div>
                   </>
-                ) : (
+                ) : product.harga ? (
                   <h5>Rp{numeral(product.harga).format("0,0")}</h5>
-                )}
+                ) : null}
                 <a
                   href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal, saya ingin membeli produk "}${
                     product.nama
