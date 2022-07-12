@@ -133,7 +133,10 @@ export default function Home({
             <div className="row">
               {distributors.map((distributor) => {
                 return (
-                  <div className="col-md-2 mb-4">
+                  <div
+                    className="col-md-2 mb-4"
+                    key={`distributor-${distributor.id}`}
+                  >
                     <img
                       src={`${baseURL + distributor.logo?.url}`}
                       alt={distributor.nama}

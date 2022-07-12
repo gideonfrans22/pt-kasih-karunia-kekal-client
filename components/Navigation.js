@@ -5,7 +5,7 @@ const Navigation = () => {
     <header>
       <div className="bg-primary py-2">
         <div className="container clearfix">
-          <div id="google_translate_element" className="float-left"></div>
+          {/* <div id="google_translate_element" className="float-left"></div> */}
           <a
             className="text-white float-right ml-4"
             href="mailto:info@kasihkaruniakekalpt.com"
