@@ -12,8 +12,8 @@ const Navigation = () => {
           >
             <i className="fas fa-envelope mr-2"></i>info@kasihkaruniakekalpt.com
           </a>
-          <a className="text-white float-right" href="tel:+628151602868">
-            <i className="fas fa-phone mr-2"></i>+62 815-1602-868
+          <a className="text-white float-right" href="tel:+628121103829">
+            <i className="fas fa-phone mr-2"></i>+62 812-1103-829
           </a>
         </div>
       </div>
