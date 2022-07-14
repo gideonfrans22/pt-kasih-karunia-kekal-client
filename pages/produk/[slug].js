@@ -147,18 +147,18 @@ function Movie({ product, offices, SEO }) {
                 )}
                 {product.diskon > 0 ? (
                   <>
-                    <h5>
-                      Rp
-                      {numeral(
-                        product.harga * ((100 - product.diskon) / 100)
-                      ).format("0,0")}
-                    </h5>
                     <div>
                       <del className="text-secondary">
                         {numeral(product.harga).format("0,0")}
                       </del>{" "}
                       <span className="text-danger">-{product.diskon}%</span>
                     </div>
+                    <h5>
+                      Rp
+                      {numeral(
+                        product.harga * ((100 - product.diskon) / 100)
+                      ).format("0,0")}
+                    </h5>
                   </>
                 ) : product.harga ? (
                   <h5>Rp{numeral(product.harga).format("0,0")}</h5>
