@@ -222,7 +222,12 @@ function Movie({ product, offices, SEO }) {
               <div className="card-header">Butuh bantuan? Hubungi:</div>
               <div className="card-body">
                 <ul className="list-group list-group-flush">
-                  {offices.map((office) => {
+                  <li className="list-group-item" key={"ci-novi-number"}>
+                    <i className="fas fa-phone mr-2"></i>
+                    +62 812-9989-8559
+                  </li>
+
+                  {/* {offices.map((office) => {
                     if (office.telepon) {
                       return (
                         <li className="list-group-item" key={office.id}>
@@ -231,7 +236,7 @@ function Movie({ product, offices, SEO }) {
                         </li>
                       );
                     }
-                  })}
+                  })} */}
                 </ul>
               </div>
             </div>
