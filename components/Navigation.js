@@ -7,6 +7,12 @@ const Navigation = () => {
         <div className="container clearfix">
           {/* <div id="google_translate_element" className="float-left"></div> */}
           <a
+            className="btn orange text-white float-right ml-4 py-0 px-2"
+            href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal"}`}
+          >
+            <i className="fab fa-whatsapp mr-2"></i>Whatsapp
+          </a>
+          <a
             className="text-white float-right ml-4"
             href="mailto:info@kasihkaruniakekalpt.com"
           >
@@ -44,10 +50,7 @@ const Navigation = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div
-            className="collapse navbar-collapse show"
-            id="navbarSupportedContent"
-          >
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto align-items-center">
               <li className="nav-item">
                 <Link href="/">
@@ -77,12 +80,12 @@ const Navigation = () => {
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a
+                {/* <a
                   className="nav-link btn orange px-4 text-white font-weight-bold"
                   href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal"}`}
                 >
                   FREE Whatsapp
-                </a>
+                </a> */}
               </li>
             </ul>
           </div>
