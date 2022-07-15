@@ -148,9 +148,9 @@ function Movie({ product, offices, SEO }) {
                 {product.diskon > 0 ? (
                   <>
                     <div>
-                      <del className="text-secondary">
+                      <span className="strike">
                         {numeral(product.harga).format("0,0")}
-                      </del>{" "}
+                      </span>{" "}
                       <span className="text-danger">-{product.diskon}%</span>
                     </div>
                     <h5>
