@@ -1,11 +1,29 @@
 import Link from "next/link";
+import { useEffect } from "react";
 
 const Navigation = () => {
+  function googleTranslateElementInit() {
+    new window.google.translate.TranslateElement(
+      { pageLanguage: "id" },
+      "google_translate_element"
+    );
+  }
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+    return () => {};
+  }, []);
+
   return (
     <header>
       <div className="bg-primary py-2">
         <div className="container clearfix">
-          {/* <div id="google_translate_element" className="float-left"></div> */}
+          <div id="google_translate_element" className="float-left"></div>
           <a
             className="btn orange text-white float-right ml-4 py-0 px-2"
             href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal"}`}
