@@ -29,7 +29,7 @@ const Navigation = () => {
                 alt="PT Kasih Karunia Kekal"
                 loading="lazy"
               />
-              <span className="d-none d-sm-inline">PT Kasih Karunia Kekal</span>
+              {/* <span className="d-none d-sm-inline">PT Kasih Karunia Kekal</span> */}
             </a>
           </Link>
           <button
