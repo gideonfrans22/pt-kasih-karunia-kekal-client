@@ -145,24 +145,24 @@ function Movie({ product, offices, SEO }) {
                 ) : (
                   ""
                 )}
-                {/* {product.diskon > 0 ? (
+                {product.diskon > 0 ? (
                   <>
+                    <div>
+                      <span className="strike">
+                        {numeral(product.harga).format("0,0")}
+                      </span>{" "}
+                      <span className="text-danger">-{product.diskon}%</span>
+                    </div>
                     <h5>
                       Rp
                       {numeral(
                         product.harga * ((100 - product.diskon) / 100)
                       ).format("0,0")}
                     </h5>
-                    <div>
-                      <del className="text-secondary">
-                        {numeral(product.harga).format("0,0")}
-                      </del>{" "}
-                      <span className="text-danger">-{product.diskon}%</span>
-                    </div>
                   </>
-                ) : (
+                ) : product.harga ? (
                   <h5>Rp{numeral(product.harga).format("0,0")}</h5>
-                )} */}
+                ) : null}
                 <a
                   href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal, saya ingin membeli produk "}${
                     product.nama
@@ -222,7 +222,12 @@ function Movie({ product, offices, SEO }) {
               <div className="card-header">Butuh bantuan? Hubungi:</div>
               <div className="card-body">
                 <ul className="list-group list-group-flush">
-                  {offices.map((office) => {
+                  <li className="list-group-item" key={"ci-novi-number"}>
+                    <i className="fas fa-phone mr-2"></i>
+                    +62 812-9989-8559
+                  </li>
+
+                  {/* {offices.map((office) => {
                     if (office.telepon) {
                       return (
                         <li className="list-group-item" key={office.id}>
@@ -231,7 +236,7 @@ function Movie({ product, offices, SEO }) {
                         </li>
                       );
                     }
-                  })}
+                  })} */}
                 </ul>
               </div>
             </div>

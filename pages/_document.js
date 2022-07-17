@@ -82,10 +82,10 @@ class MyDocument extends Document {
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"
           />
-          <script
+          {/* <script
             type="text/javascript"
             src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          ></script>
+          ></script> */}
           <script src="/js/app.js"></script>
         </body>
       </Html>

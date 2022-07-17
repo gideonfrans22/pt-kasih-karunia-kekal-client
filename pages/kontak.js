@@ -189,7 +189,7 @@ export async function getServerSideProps() {
   const offices = await clientAxios("/offices?_sort=created_at:DESC");
   const page = await clientAxios("/pages?halaman=kontak");
 
-  const deskripsi = `Hubungi kami, kami siap melayani anda melalui kontak. Whatsapp: +62 812-1103-829. email: info@kasihkaruniakekalpt.com. Fax/telp: +62 21 42879525`;
+  const deskripsi = `Hubungi kami, kami siap melayani anda melalui kontak. Whatsapp: +62 818-429-372. email: info@kasihkaruniakekalpt.com. Fax/telp: +62 21 42879525`;
   const SEO = {
     title: "Kontak",
     description:
