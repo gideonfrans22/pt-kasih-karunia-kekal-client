@@ -32,57 +32,13 @@ export default function Profil({ page, offices, SEO }) {
                   {offices.map((office) => {
                     return (
                       <div className="col-md-4 mb-4" key={office.id}>
-                        <div
-                          id={`carousel${office.id}`}
-                          className="carousel slide"
-                          data-ride="carousel"
-                        >
-                          <div className="carousel-inner">
-                            {office.galeri.map((galeri, idx) => {
-                              return (
-                                <div
-                                  className={
-                                    idx == 0
-                                      ? "carousel-item active"
-                                      : "carousel-item"
-                                  }
-                                  key={galeri.id}
-                                >
-                                  <img
-                                    src={baseURL + galeri.url}
-                                    className="d-block w-100 square-img"
-                                    alt={galeri.name}
-                                  />
-                                  <div className="carousel-caption d-none d-md-block">
-                                    <h5>{office.kota}</h5>
-                                  </div>
-                                </div>
-                              );
-                            })}
-                          </div>
-                          <a
-                            class="carousel-control-prev"
-                            href={`#carousel${office.id}`}
-                            role="button"
-                            data-slide="prev"
-                          >
-                            <span
-                              class="carousel-control-prev-icon"
-                              aria-hidden="true"
-                            ></span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                          <a
-                            class="carousel-control-next"
-                            href={`#carousel${office.id}`}
-                            role="button"
-                            data-slide="next"
-                          >
-                            <span
-                              class="carousel-control-next-icon"
-                              aria-hidden="true"
-                            ></span>
-                            <span class="sr-only">Next</span>
+                        <div className="relative">
+                          <a className="text-body">
+                            <img
+                              src={baseURL + office.galeri[0]?.url}
+                              className="card-img-top square-img hover-zoom"
+                              alt={office.galeri[0]?.nama}
+                            />
                           </a>
                         </div>
                         <ul className="list-group list-group">
