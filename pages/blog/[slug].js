@@ -1,8 +1,6 @@
 import { NextSeo } from "next-seo";
-import { clientAxios, baseURL } from "../../client";
-import Lightbox from "react-image-lightbox";
 import { useState } from "react";
-import Link from "next/link";
+import { baseURL, clientAxios } from "../../client";
 const ReactMarkdown = require("react-markdown");
 const numeral = require("numeral");
 const moment = require("moment");
