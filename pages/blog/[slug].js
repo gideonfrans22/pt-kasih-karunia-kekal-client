@@ -69,7 +69,7 @@ function Movie({ blog, offices }) {
         <ReactMarkdown
           source={blog.konten.replace(
             "/uploads",
-            "http://157.245.205.175:1337/uploads"
+            "https://admin.kasihkaruniakekalpt.com/uploads"
           )}
         />
       </div>
