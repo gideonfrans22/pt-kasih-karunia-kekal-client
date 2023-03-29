@@ -11,17 +11,17 @@ try {
   numeral.register("locale", "id", {
     delimiters: {
       thousands: ".",
-      decimal: ",",
+      decimal: ","
     },
     abbreviations: {
       thousand: "ribu",
       million: "juta",
       billion: "miliar",
-      trillion: "triliun",
+      trillion: "triliun"
     },
     currency: {
-      symbol: "Rp",
-    },
+      symbol: "Rp"
+    }
   });
 
   numeral.locale("id");
@@ -29,7 +29,7 @@ try {
   console.log(err);
 }
 
-function Movie({ product, offices, SEO }) {
+function Movie({ product, offices, contacts, SEO }) {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -222,21 +222,17 @@ function Movie({ product, offices, SEO }) {
               <div className="card-header">Butuh bantuan? Hubungi:</div>
               <div className="card-body">
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item" key={"ci-novi-number"}>
-                    <i className="fas fa-phone mr-2"></i>
-                    +62 812-9989-8559
-                  </li>
-
-                  {/* {offices.map((office) => {
-                    if (office.telepon) {
-                      return (
-                        <li className="list-group-item" key={office.id}>
-                          <i className="fas fa-phone mr-2"></i>
-                          {office.telepon}
-                        </li>
-                      );
-                    }
-                  })} */}
+                  {contacts.map((contact) => {
+                    return (
+                      <li
+                        className="list-group-item"
+                        key={contact?.nama_kontak}
+                      >
+                        <i className="fas fa-phone mr-2"></i>
+                        {contact?.no_whatsapp}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>
@@ -328,6 +324,7 @@ function Movie({ product, offices, SEO }) {
 export async function getServerSideProps({ query: { slug } }) {
   const res = await clientAxios(`/products?slug=${slug}`);
   const offices = await clientAxios("/offices");
+  const contacts = await clientAxios("/contacts");
 
   const product = res.data[0] || null;
 
@@ -338,16 +335,17 @@ export async function getServerSideProps({ query: { slug } }) {
     canonical: `https://kasihkaruniakekalpt.com/produk/${slug}`,
     openGraph: {
       title: `${product.nama} | PT Kasih Karunia Kekal`,
-      description: deskripsi,
-    },
+      description: deskripsi
+    }
   };
 
   return {
     props: {
       product,
       offices: offices.data,
-      SEO,
-    },
+      contacts: contacts.data,
+      SEO
+    }
   };
 }
 
