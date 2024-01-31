@@ -136,6 +136,25 @@ const Navigation = () => {
               <li className="nav-item">
                 <Link href="/Produk">
                   <a className="nav-link">Products</a>
+  <div class="dropdown">
+    <button class="dropbtn">Product
+      <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+    <a href="#">By Brand</a>
+    <a href="#">By Categories</a>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Catalogue
+      <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+    <a href="#">E-Catalogue</a>
+    <a href="#">Catalogue PDF</a>
+  </div>
+</div>
+<a href="#home">Contact Us</a>
+</div>
                 </Link>
               </li>
               <li className="nav-item">
