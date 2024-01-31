@@ -71,12 +71,12 @@ const Navigation = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto align-items-center">
               <li className="nav-item">
-                <Link href="/AboutUs">
+                <Link href="/Profil">
                   <a className="nav-link">About Us</a>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/Products">
+                <Link href="/Produk">
                   <a className="nav-link">Products</a>
                 </Link>
               </li>
@@ -86,7 +86,7 @@ const Navigation = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/ContactUs">
+                <Link href="/Kontak">
                   <a className="nav-link">Contact Us</a>
                 </Link>
               </li>
