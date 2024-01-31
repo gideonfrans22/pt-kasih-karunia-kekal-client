@@ -73,6 +73,16 @@ const Navigation = () => {
               <li className="nav-item">
                 <Link href="/Profil">
                   <a className="nav-link">About Us</a>
+              <div class="dropdown">
+                <button class="dropbtn">About Us
+                  <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Vision & Mission</a>
+                <a href="#">News</a>
+                <a href="#">Our Office</a>
+              </div>
+            </div>
                 </Link>
               </li>
               <li className="nav-item">
