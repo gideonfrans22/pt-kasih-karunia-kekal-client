@@ -39,7 +39,7 @@ export default function Home({
                         <i className="fas fa-syringe h2 text-info"></i>
                       </div>
                       <div className="col-12 text-center">
-                        Distributor alat kesehatan terpercaya sejak 1999
+                        Distributor Alat Kesehatan Terpercaya Sejak 1999
                       </div>
                     </div>
                   </div>
@@ -54,7 +54,7 @@ export default function Home({
                         <i className="fab fa-whatsapp h2 text-primary"></i>
                       </div>
                       <div className="col-12 text-center">
-                        Free Konsultasi 24/7 via Whatsapp
+                        Konsultasi 24/7 via Whatsapp
                       </div>
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function Home({
           </div>
 
           <div className="container mt-4">
-            <h3>Distributor Kami</h3>
+            <h3>Our Brand Partners</h3>
             <div className="row">
               {distributors.map((distributor) => {
                 return (
@@ -173,7 +173,7 @@ export default function Home({
                         <i className="fas fa-syringe h2 text-info"></i>
                       </div>
                       <div className="col-12 text-center">
-                        Distributor alat kesehatan terpercaya sejak 1999
+                        Distributor Alat Kesehatan Terpercaya Sejak 1999
                       </div>
                     </div>
                   </div>
@@ -188,7 +188,7 @@ export default function Home({
                         <i className="fab fa-whatsapp h2 text-primary"></i>
                       </div>
                       <div className="col-12 text-center">
-                        Free Konsultasi 24/7 via Whatsapp
+                        Konsultasi 24/7 via Whatsapp
                       </div>
                     </div>
                   </div>
@@ -203,7 +203,7 @@ export default function Home({
                         <i className="fas fa-city h2 text-warning"></i>
                       </div>
                       <div className="col-12 text-center">
-                        {officeCount} kantor tersebar di seluruh Indonesia
+                        {officeCount} Kantor Tersebar di Seluruh Indonesia
                       </div>
                     </div>
                   </div>
@@ -218,7 +218,7 @@ export default function Home({
                         <i className="fas fa-heart text-danger h2"></i>
                       </div>
                       <div className="col-12 text-center">
-                        Kepuasan pelanggan adalah No.1 untuk kami
+                        Kepuasan Pelanggan adalah No.1 untuk Kami
                       </div>
                     </div>
                   </div>
