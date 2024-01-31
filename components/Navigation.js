@@ -128,6 +128,7 @@ const Navigation = () => {
               <div class="dropdown-content">
                 <a href="#">Vision & Mission</a>
                 <a href="#">News</a>
+                <a href="#">Company Activity & Culture</a>
                 <a href="#">Our Office</a>
               </div>
             </div>
