@@ -7,17 +7,17 @@ try {
   numeral.register("locale", "id", {
     delimiters: {
       thousands: " ",
-      decimal: ",",
+      decimal: ","
     },
     abbreviations: {
       thousand: "ribu",
       million: "juta",
       billion: "miliar",
-      trillion: "triliun",
+      trillion: "triliun"
     },
     currency: {
-      symbol: "Rp",
-    },
+      symbol: "Rp"
+    }
   });
 
   numeral.locale("id");
@@ -96,23 +96,19 @@ const ProductList = ({ product }) => {
           ) : (
             <h5>Rp{numeral(product.harga).format("a")}</h5>
           )} */}
-          {product.product_categories
-            ? product.product_categories.map((category) => {
-                return (
-                  <Link
-                    href="/produk/kategori/[id]"
-                    as={`/produk/kategori/${category.slug}`}
-                    key={category.id}
-                  >
-                    <a>
-                      <h4 className="badge badge-warning mr-1">
-                        {category.nama}
-                      </h4>
-                    </a>
-                  </Link>
-                );
-              })
-            : null}
+          {product.product_brand ? (
+            <Link
+              href="/produk/brand/[id]"
+              as={`/produk/brand/${product.product_brand.slug}`}
+              key={product.product_brand.slug}
+            >
+              <a>
+                <h4 className="badge badge-warning mr-1">
+                  {product.product_brand.nama}
+                </h4>
+              </a>
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

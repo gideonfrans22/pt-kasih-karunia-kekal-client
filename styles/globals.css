@@ -140,3 +140,40 @@ video {
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
 }
+
+.nav-item {
+  .dropdown {
+    .dropdown-toggle {
+      background-color: transparent;
+      border: 0;
+    }
+    .dropdown-toggle:focus {
+      outline: none;
+    }
+    .dropdown-toggle::after {
+      transform: rotate(0deg);
+      transition: transform 0.25s linear;
+    }
+  }
+
+  .dropdown.show {
+    .dropdown-toggle::after {
+      transform: rotate(-180deg);
+    }
+
+    .dropdown-menu {
+      .dropdown-item {
+        padding: 0;
+
+        a {
+          display: block;
+          padding: 0.25rem 1.5rem;
+        }
+
+        a:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

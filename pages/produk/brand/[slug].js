@@ -6,17 +6,17 @@ try {
   numeral.register("locale", "id", {
     delimiters: {
       thousands: ".",
-      decimal: ",",
+      decimal: ","
     },
     abbreviations: {
       thousand: "ribu",
       million: "juta",
       billion: "miliar",
-      trillion: "triliun",
+      trillion: "triliun"
     },
     currency: {
-      symbol: "Rp",
-    },
+      symbol: "Rp"
+    }
   });
 
   numeral.locale("id");
@@ -32,8 +32,8 @@ function Kategori({ product }) {
 
     openGraph: {
       title: `PT Kasih Karunia Kekal | ${product.nama}`,
-      description: deskripsi,
-    },
+      description: deskripsi
+    }
   };
 
   return (
@@ -48,7 +48,7 @@ function Kategori({ product }) {
         </div>
 
         <div className="container py-5">
-          <h3 className="mb-4">Kategori Produk : {product.nama}</h3>
+          <h3 className="mb-4">Brand Produk : {product.nama}</h3>
           <div className="row">
             {product
               ? product.products.map((product) => {
@@ -63,12 +63,12 @@ function Kategori({ product }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await clientAxios(`/product-categories?slug=${slug}`);
+  const res = await clientAxios(`/distributors?slug=${slug}`);
 
   return {
     props: {
-      product: res.data[0] || null,
-    },
+      product: res.data[0] || null
+    }
   };
 }
 

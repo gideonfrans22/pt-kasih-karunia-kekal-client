@@ -67,98 +67,111 @@ const Navigation = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-<style>
-.navbar a {
-    float:left;
-    font-size:16px;
-    color:white;
-    text-align:center;
-    padding:14px 16px;
-    text-decoration:none;
-            }
-.dropdown {
-  float:;left;
-  overflow:hidden;
-}
-.dropdown .dropbtn {
-  font-size:16px;
-  border:none;
-  outline:none;
-  color:white;
-  padding:14px 16px;
-  background-color:inherit;
-  font-family:inherit;
-  margin:0;
-}
-.navbar a:hover, .dropdown:hover .dropbtn{
-  background-color:red;
-}
-.dropdown-content{
-  display:none;
-  position:absolute;
-  background-color:#f9f9f9;
-  min-width:160px;
-  box-shadow:0px 8px 16px 0px rgba(0,0,0,0,2);
-  z-index:1;
-}
-.dropdown-content a {
-  float:none;
-  color:black;
-  padding:12px 16px;
-  text-decoration:none;
-  display:block;
-  text-align:left;
-}
-.dropdown-content a:hover {
-  background-color:#ddd;
-}
-.dropdown:hover .dropdown-content {
-  display:block;
-}
-</style>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto align-items-center">
               <li className="nav-item">
-                <Link href="/Profil">
-                  <a className="nav-link">About Us</a>
-              <div class="dropdown">
-                <button class="dropbtn">About Us
-                  <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">Vision & Mission</a>
-                <a href="#">News</a>
-                <a href="#">Company Activity & Culture</a>
-                <a href="#">Our Office</a>
-              </div>
-            </div>
+                <Link href="/">
+                  <a className="nav-link">Beranda</a>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/Produk">
-                  <a className="nav-link">Products</a>
-  <div class="dropdown">
-    <button class="dropbtn">Product
-      <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-content">
-    <a href="#">By Brand</a>
-    <a href="#">By Categories</a>
-  </div>
-  <div class="dropdown">
-    <button class="dropbtn">Catalogue
-      <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-content">
-    <a href="#">E-Catalogue</a>
-    <a href="#">Catalogue PDF</a>
-  </div>
-</div>
-<a href="#home">Contact Us</a>
-</div>
+                <Link href="/profil">
+                  <a className="nav-link">Profil</a>
                 </Link>
               </li>
+
+              {/* Dropdown About Us Sementara di komen  */}
+              {/* <li className="nav-item">
+                <div className="dropdown">
+                  <button
+                    class="navbar-dropdown-button dropdown-toggle"
+                    type="button"
+                    id="aboutUsMenu"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    About Us
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="aboutUsMenu">
+                    <div className="dropdown-item">
+                      <Link href="/">
+                        <a className="test">Vision & Mission</a>
+                      </Link>
+                    </div>
+                    <div className="dropdown-item">
+                      <Link href="/">News</Link>
+                    </div>
+                    <div className="dropdown-item">
+                      <Link href="/">Contact Us</Link>
+                    </div>
+                    <div className="dropdown-item">
+                      <Link href="/">Our Branch Offices</Link>
+                    </div>
+                  </div>
+                </div>
+              </li> */}
+
               <li className="nav-item">
+                <div className="dropdown">
+                  <button
+                    class="nav-link navbar-dropdown-button dropdown-toggle"
+                    type="button"
+                    id="productMenu"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Product
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="productMenu">
+                    <div className="dropdown-item">
+                      <Link href="/produk">By Brand</Link>
+                    </div>
+                    <div className="dropdown-item">
+                      <Link href="/produk?by=type">By Type</Link>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li className="nav-item">
+                <Link href="/kontak">
+                  <a className="nav-link">Kontak</a>
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link href="/blog">
+                  <a className="nav-link">Blog</a>
+                </Link>
+              </li>
+
+              {/* Dropdown Catalouge Sementara di komen  */}
+
+              {/* <li class="nav-item">
+                <div className="dropdown">
+                  <button
+                    class="nav-link  navbar-dropdown-button dropdown-toggle"
+                    type="button"
+                    id="catalogueMenu"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Catalogue
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="catalogueMenu">
+                    <div className="dropdown-item">
+                      <Link href="/produk">E-Catalogue</Link>
+                    </div>
+                    <div className="dropdown-item">
+                      <Link href="/produk">Catalogue PDF</Link>
+                    </div>
+                  </div>
+                </div>
+              </li> */}
+              {/* <li className="nav-item">
                 <Link href="/Catalogue">
                   <a className="nav-link">Catalogue</a>
                 </Link>
@@ -167,12 +180,7 @@ const Navigation = () => {
                 <Link href="/Kontak">
                   <a className="nav-link">Contact Us</a>
                 </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/blog">
-                  <a className="nav-link">Blog</a>
-                </Link>
-              </li>
+              </li> */}
             </ul>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">

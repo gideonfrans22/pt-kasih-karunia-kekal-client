@@ -196,22 +196,39 @@ function Movie({ product, offices, contacts, SEO }) {
                         }
                       />
                     </div>
-                    <p>Kategori:</p>
-                    {product.product_categories.map((category) => {
-                      return (
-                        <Link
-                          href="/produk/kategori/[slug]"
-                          as={`/produk/kategori/${category.slug}`}
-                          key={category.id}
-                        >
-                          <a>
-                            <h4 className="badge badge-warning mr-1">
-                              {category.nama}
-                            </h4>
-                          </a>
-                        </Link>
-                      );
-                    })}
+                    <p>Brand:</p>
+                    {product.product_brand ? (
+                      <Link
+                        href="/produk/brand/[slug]"
+                        as={`/produk/brand/${product.product_brand?.slug}`}
+                        key={product.product_brand?.id}
+                      >
+                        <a>
+                          <h4 className="badge badge-warning mr-1">
+                            {product.product_brand?.nama}
+                          </h4>
+                        </a>
+                      </Link>
+                    ) : (
+                      ""
+                    )}
+
+                    {
+                      // .map((category) => {
+                      //   return (
+                      //     <Link
+                      //       href="/produk/kategori/[slug]"
+                      //       as={`/produk/kategori/${category.slug}`}
+                      //       key={category.id}
+                      //     >
+                      //       <a>
+                      //         <h4 className="badge badge-warning mr-1">
+                      //           {category.nama}
+                      //         </h4>
+                      //       </a>
+                      //     </Link>
+                      //   );
+                    }
                   </div>
                 </div>
               </div>

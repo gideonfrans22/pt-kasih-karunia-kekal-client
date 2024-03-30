@@ -3,8 +3,10 @@ import ProductList from "components/ProductList";
 import Link from "next/link";
 import { useState } from "react";
 import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
 
-const index = ({ page, products, categories, SEO }) => {
+const index = ({ page, products, categories, SEO, by }) => {
+  const router = useRouter();
   const [filterProduct, setFilterProduct] = useState([]);
 
   const searchProduct = (search) => {
@@ -50,22 +52,53 @@ const index = ({ page, products, categories, SEO }) => {
             </div>
           </form>
           <div className="mb-4">
-            <h4>Kategori Produk</h4>
-            {categories.map((category) => {
-              return (
-                <Link
-                  href="/produk/kategori/[id]"
-                  as={`/produk/kategori/${category.slug}`}
-                  key={category.id}
-                >
-                  <a>
-                    <h4 className="badge badge-warning mr-1">
-                      {category.nama}
-                    </h4>
-                  </a>
-                </Link>
-              );
-            })}
+            <h3 className="mb-2">{by == "type" ? "Tipe" : "Brand"} Produk</h3>
+            {by !== "type" ? (
+              <div className="row">
+                {categories.map((category) => {
+                  return (
+                    <Link
+                      href={`/produk/brand/[id]`}
+                      as={`/produk/brand/${category.slug}`}
+                      key={category.id}
+                    >
+                      <a
+                        className="col-md-2 mb-4"
+                        style={{ maxHeight: "100px" }}
+                      >
+                        <img
+                          src={`${baseURL + category.logo?.url}`}
+                          alt={category.nama}
+                          title={category.nama}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain"
+                          }}
+                        />
+                        <h4 className="badge badge-secondary">
+                          {category.nama}
+                        </h4>
+                      </a>
+                    </Link>
+                  );
+                })}
+              </div>
+            ) : (
+              categories.map((category) => {
+                return (
+                  <Link
+                    href={`/produk/tipe/[id]`}
+                    as={`/produk/tipe/${category.slug}`}
+                    key={category.id}
+                  >
+                    <a className="mr-1">
+                      <h4 className="badge badge-warning">{category.nama}</h4>
+                    </a>
+                  </Link>
+                );
+              })
+            )}
           </div>
           <div className="row">
             {filterProduct.length
@@ -82,10 +115,11 @@ const index = ({ page, products, categories, SEO }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query: { by } }) {
   const products = await clientAxios("/products?_sort=prioritas_tampil:DESC");
   const page = await clientAxios("/pages/4");
-  const categories = await clientAxios(`/product-categories`);
+  const categorizedBy = by && by === "type" ? "product-types" : "distributors";
+  let categories = await clientAxios(`/${categorizedBy}`);
 
   const deskripsi =
     `Produk-produk yang kami tawarkan: ` +
@@ -100,9 +134,20 @@ export async function getServerSideProps() {
       type: "website",
       locale: "en_IE",
       url: "https://kasihkaruniakekalpt.com/produk",
-      site_name: "PT Kasih Karunia Kekal",
-    },
+      site_name: "PT Kasih Karunia Kekal"
+    }
   };
+
+  if (by === "type") {
+    categories.data = categories?.data?.map((category) => {
+      return {
+        ...category,
+        nama: category?.tipe,
+        id: category?.tipe,
+        slug: category?.tipe
+      };
+    });
+  }
 
   const videoExtensions = ["mp4", "m4v"];
 
@@ -134,7 +179,8 @@ export async function getServerSideProps() {
       page: page.data,
       categories: categories.data,
       SEO: SEO,
-    },
+      by: by || ""
+    }
   };
 }
 

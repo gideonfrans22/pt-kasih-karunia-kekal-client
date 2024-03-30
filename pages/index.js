@@ -12,7 +12,7 @@ export default function Home({
   blogCategories,
   officeCount,
   distributors,
-  SEO,
+  SEO
 }) {
   return (
     <>
@@ -317,11 +317,11 @@ export async function getServerSideProps() {
   const page = await clientAxios("/pages?halaman=home");
   const officeCount = await clientAxios("/offices/count");
   const distributors = await clientAxios("/distributors");
-  const categories = await clientAxios(`/product-categories`);
+  const brands = await clientAxios(`/distributors`);
 
   const deskripsi =
     page.data[0]?.deskripsi_halaman +
-    `. Mendistribusikan alat ${categories?.data
+    `. Mendistribusikan alat ${brands?.data
       ?.map((category) => category?.nama)
       ?.join(" | ")}`;
   const SEO = {
@@ -332,8 +332,8 @@ export async function getServerSideProps() {
       type: "website",
       locale: "en_IE",
       url: "https://kasihkaruniakekalpt.com",
-      site_name: "PT Kasih Karunia Kekal",
-    },
+      site_name: "PT Kasih Karunia Kekal"
+    }
   };
 
   return {
@@ -344,7 +344,7 @@ export async function getServerSideProps() {
       blogs: blogs.data,
       blogCategories: blogCategories.data,
       distributors: distributors.data,
-      SEO: SEO,
-    },
+      SEO: SEO
+    }
   };
 }
