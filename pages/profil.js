@@ -2,6 +2,7 @@ import { NextSeo } from "next-seo";
 import { baseURL, clientAxios } from "../client";
 
 export default function Profil({ page, offices, SEO }) {
+  console.log(offices);
   return (
     <>
       <NextSeo {...SEO} />
@@ -27,18 +28,22 @@ export default function Profil({ page, offices, SEO }) {
           <div className="container my-4">
             <div className="row">
               <div className="col-md-12">
-                <h3 className="mb-4">Office Kami</h3>
+                {/* <h3 className="mb-4">Office Kami</h3> */}
                 <div className="row">
-                  {offices.map((office) => {
+                  {/* {offices.map((office) => {
                     return (
                       <div className="col-md-4 mb-4" key={office.id}>
                         <div className="relative">
                           <a className="text-body">
-                            <img
-                              src={baseURL + office.galeri[0]?.url}
-                              className="card-img-top square-img hover-zoom"
-                              alt={office.galeri[0]?.nama}
-                            />
+                            {office.galeri[0]?.url ? (
+                              <img
+                                src={baseURL + office.galeri[0]?.url}
+                                className="card-img-top square-img hover-zoom"
+                                alt={office.galeri[0]?.nama}
+                              />
+                            ) : (
+                              ""
+                            )}
                           </a>
                         </div>
                         <ul className="list-group list-group">
@@ -71,7 +76,7 @@ export default function Profil({ page, offices, SEO }) {
                         </ul>
                       </div>
                     );
-                  })}
+                  })} */}
                 </div>
               </div>
             </div>
@@ -83,7 +88,7 @@ export default function Profil({ page, offices, SEO }) {
 }
 
 export async function getServerSideProps() {
-  const offices = await clientAxios("/offices?_sort=created_at:DESC");
+  const offices = await clientAxios("/offices?_sort=created_at:ASC");
   const page = await clientAxios("/pages?halaman=profil");
 
   const deskripsi =
@@ -98,15 +103,15 @@ export async function getServerSideProps() {
       type: "website",
       locale: "en_IE",
       url: "https://kasihkaruniakekalpt.com/profil",
-      site_name: "PT Kasih Karunia Kekal",
-    },
+      site_name: "PT Kasih Karunia Kekal"
+    }
   };
 
   return {
     props: {
       page: page.data[0],
       offices: offices.data,
-      SEO,
-    },
+      SEO
+    }
   };
 }

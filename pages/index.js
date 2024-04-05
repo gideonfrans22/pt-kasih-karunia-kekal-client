@@ -317,11 +317,10 @@ export async function getServerSideProps() {
   const page = await clientAxios("/pages?halaman=home");
   const officeCount = await clientAxios("/offices/count");
   const distributors = await clientAxios("/distributors");
-  const brands = await clientAxios(`/distributors`);
 
   const deskripsi =
     page.data[0]?.deskripsi_halaman +
-    `. Mendistribusikan alat ${brands?.data
+    `. Mendistribusikan alat ${distributors?.data
       ?.map((category) => category?.nama)
       ?.join(" | ")}`;
   const SEO = {

@@ -87,9 +87,40 @@ export default function Kontak({ page, offices, SEO }) {
           <div className="container my-4">
             <div className="row">
               <div className="col-md-12">
-                <h3 className="mb-4">Office Kami</h3>
+                <h1 className="mb-4 text-center fw-bold">Office Kami</h1>
                 <div className="row">
-                  {offices.map((office) => {
+                  <div className="col-md-6 text-center">
+                    <h2 className="mb-4">Kantor</h2>
+                    <div>
+                      {offices
+                        ?.filter((office) => !office?.perwakilan)
+                        ?.map((office) => {
+                          return (
+                            <div>
+                              <hr />
+                              <h5>{office.kota}</h5>
+                              <p>{office.alamat}</p>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </div>
+                  <div className="col-md-6 text-center">
+                    <h2 className="mb-4">Cabang Perwakilan</h2>
+                    <div>
+                      {offices
+                        ?.filter((office) => office?.perwakilan)
+                        ?.map((office) => {
+                          return (
+                            <div>
+                              <hr />
+                              <h5>{office.alamat}</h5>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </div>
+                  {/* {offices.map((office) => {
                     return (
                       <div className="col-md-6 mb-4" key={office.id}>
                         <div
@@ -174,7 +205,7 @@ export default function Kontak({ page, offices, SEO }) {
                         </ul>
                       </div>
                     );
-                  })}
+                  })} */}
                 </div>
               </div>
             </div>
@@ -200,15 +231,15 @@ export async function getServerSideProps() {
       type: "website",
       locale: "en_IE",
       url: "https://kasihkaruniakekalpt.com/kontak",
-      site_name: "PT Kasih Karunia Kekal",
-    },
+      site_name: "PT Kasih Karunia Kekal"
+    }
   };
 
   return {
     props: {
       page: page.data[0],
       offices: offices.data,
-      SEO,
-    },
+      SEO
+    }
   };
 }

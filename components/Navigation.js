@@ -21,11 +21,11 @@ const Navigation = () => {
 
   return (
     <header>
-      <div className="bg-primary py-2">
+      <div className="bg-secondary py-2">
         <div className="container clearfix">
           <div id="google_translate_element" className="float-left"></div>
           <a
-            className="btn orange text-white float-right ml-4 py-0 px-2"
+            className="btn green text-white float-right ml-4 py-0 px-2"
             href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal"}`}
           >
             <i className="fab fa-whatsapp mr-2"></i>Whatsapp

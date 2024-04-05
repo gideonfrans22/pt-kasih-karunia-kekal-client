@@ -61,6 +61,10 @@ video {
   background: #cf8009;
 }
 
+.green {
+  background: #4caf50;
+}
+
 .pointer {
   cursor: pointer;
 }
