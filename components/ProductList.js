@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { baseURL } from "../client";
+import { mediaURL } from "../client";
 const numeral = require("numeral");
 const videoExtensions = ["mp4", "m4v"];
 
@@ -41,7 +41,7 @@ const ProductList = ({ product }) => {
             <a className="text-body">
               {isVideo ? (
                 <video
-                  src={baseURL + product?.gallery[0]?.url}
+                  src={mediaURL + product?.gallery[0]?.url}
                   autoPlay
                   muted
                   loop
@@ -49,7 +49,7 @@ const ProductList = ({ product }) => {
                 ></video>
               ) : (
                 <img
-                  src={baseURL + product?.gallery[0]?.url}
+                  src={mediaURL + product?.gallery[0]?.url}
                   className="card-img-top square-img hover-zoom"
                   alt={product.nama}
                 />

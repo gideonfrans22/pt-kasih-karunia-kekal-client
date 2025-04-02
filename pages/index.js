@@ -1,4 +1,4 @@
-import { clientAxios, baseURL } from "../client";
+import { clientAxios, mediaURL } from "../client";
 import ProductList from "components/ProductList";
 import Link from "next/link";
 import _ from "lodash";
@@ -14,6 +14,8 @@ export default function Home({
   distributors,
   SEO
 }) {
+
+  console.log(page, distributors);
   return (
     <>
       <NextSeo {...SEO} />
@@ -99,32 +101,32 @@ export default function Home({
           <div className="row">
             {products.length
               ? products
-                  .sort((current, next) => {
-                    const currentExtension = current?.gallery[0]?.url
-                      .split(".")
-                      .pop()
-                      .toLowerCase();
-                    const nextExtension = next?.gallery[0]?.url
-                      .split(".")
-                      .pop()
-                      .toLowerCase();
-                    if (
-                      videoExtensions.includes(currentExtension) &&
-                      !videoExtensions?.includes(nextExtension)
-                    ) {
-                      return -1;
-                    }
-                    if (
-                      !videoExtensions.includes(currentExtension) &&
-                      videoExtensions?.includes(nextExtension)
-                    ) {
-                      return 1;
-                    }
-                    return 0;
-                  })
-                  .map((product) => {
-                    return <ProductList key={product.id} product={product} />;
-                  })
+                .sort((current, next) => {
+                  const currentExtension = current?.gallery[0]?.url
+                    .split(".")
+                    .pop()
+                    .toLowerCase();
+                  const nextExtension = next?.gallery[0]?.url
+                    .split(".")
+                    .pop()
+                    .toLowerCase();
+                  if (
+                    videoExtensions.includes(currentExtension) &&
+                    !videoExtensions?.includes(nextExtension)
+                  ) {
+                    return -1;
+                  }
+                  if (
+                    !videoExtensions.includes(currentExtension) &&
+                    videoExtensions?.includes(nextExtension)
+                  ) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((product) => {
+                  return <ProductList key={product.id} product={product} />;
+                })
               : "Tidak ada data"}
           </div>
 
@@ -138,7 +140,7 @@ export default function Home({
                     key={`distributor-${distributor.id}`}
                   >
                     <img
-                      src={`${baseURL + distributor.logo?.url}`}
+                      src={`${mediaURL + distributor.logo?.url}`}
                       alt={distributor.nama}
                       title={distributor.nama}
                       width="100%"
@@ -256,7 +258,7 @@ export default function Home({
                           <Link href="/blog/[slug]" as={`/blog/${blog.slug}`}>
                             <a className="hover-overflow">
                               <img
-                                src={baseURL + blog.thumbnail.url}
+                                src={mediaURL + blog.thumbnail.url}
                                 alt={blog.judul}
                                 className="square-img rounded shadow hover-zoom"
                               />
@@ -315,12 +317,12 @@ export async function getServerSideProps() {
   const blogCategories = await clientAxios("/blog-categories");
   const blogs = await clientAxios("/blogs?_sort=created_at:DESC");
   const page = await clientAxios("/pages?halaman=home");
-  const officeCount = await clientAxios("/offices/count");
-  const distributors = await clientAxios("/distributors");
+  const officeCount = await clientAxios("/offices");
+  const distributors = await clientAxios("/distributors?populate=*");
 
   const deskripsi =
     page.data[0]?.deskripsi_halaman +
-    `. Mendistribusikan alat ${distributors?.data
+    `. Mendistribusikan alat ${distributors?.data?.data
       ?.map((category) => category?.nama)
       ?.join(" | ")}`;
   const SEO = {
@@ -337,12 +339,12 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      products: products.data,
-      officeCount: officeCount.data,
-      page: page.data[0],
-      blogs: blogs.data,
-      blogCategories: blogCategories.data,
-      distributors: distributors.data,
+      products: products.data.data,
+      officeCount: officeCount?.data?.meta.pagination.total,
+      page: page.data.data[0],
+      blogs: blogs.data.data,
+      blogCategories: blogCategories.data.data,
+      distributors: distributors.data.data,
       SEO: SEO
     }
   };

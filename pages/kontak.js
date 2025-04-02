@@ -1,4 +1,4 @@
-import { clientAxios, baseURL } from "../client";
+import { clientAxios, mediaURL } from "../client";
 import ProductList from "components/ProductList";
 import Link from "next/link";
 import { useState } from "react";
@@ -140,7 +140,7 @@ export default function Kontak({ page, offices, SEO }) {
                                   key={galeri.id}
                                 >
                                   <img
-                                    src={baseURL + galeri.url}
+                                    src={mediaURL +  galeri.url}
                                     className="d-block w-100 square-img"
                                     alt={galeri.name}
                                   />

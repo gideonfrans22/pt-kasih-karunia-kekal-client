@@ -1,4 +1,4 @@
-import { clientAxios, baseURL } from "../client";
+import { clientAxios, mediaURL } from "../client";
 import Link from "next/link";
 
 const blog = ({ page, blogs, blogCategories }) => {
@@ -38,7 +38,7 @@ const blog = ({ page, blogs, blogCategories }) => {
                         <Link href="/blog/[slug]" as={`/blog/${blog.slug}`}>
                           <a className="hover-overflow">
                             <img
-                              src={baseURL + blog.thumbnail.url}
+                              src={mediaURL + blog.thumbnail.url}
                               alt={blog.judul}
                               className="square-img rounded shadow hover-zoom"
                             />

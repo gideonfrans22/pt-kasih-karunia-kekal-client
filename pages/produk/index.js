@@ -1,4 +1,4 @@
-import { clientAxios, baseURL } from "../../client";
+import { clientAxios, mediaURL } from "../../client";
 import ProductList from "components/ProductList";
 import Link from "next/link";
 import { useState } from "react";
@@ -67,7 +67,7 @@ const index = ({ page, products, categories, SEO, by }) => {
                         style={{ maxHeight: "100px" }}
                       >
                         <img
-                          src={`${baseURL + category.logo?.url}`}
+                          src={`${mediaURL + category.logo?.url}`}
                           alt={category.nama}
                           title={category.nama}
                           style={{
@@ -103,11 +103,11 @@ const index = ({ page, products, categories, SEO, by }) => {
           <div className="row">
             {filterProduct.length
               ? filterProduct.map((product) => {
-                  return <ProductList key={product.id} product={product} />;
-                })
+                return <ProductList key={product.id} product={product} />;
+              })
               : products.map((product) => {
-                  return <ProductList key={product.id} product={product} />;
-                })}
+                return <ProductList key={product.id} product={product} />;
+              })}
           </div>
         </div>
       </main>

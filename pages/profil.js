@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import { baseURL, clientAxios } from "../client";
+import { mediaURL, clientAxios } from "../client";
 
 export default function Profil({ page, offices, SEO }) {
   console.log(offices);
@@ -37,7 +37,7 @@ export default function Profil({ page, offices, SEO }) {
                           <a className="text-body">
                             {office.galeri[0]?.url ? (
                               <img
-                                src={baseURL + office.galeri[0]?.url}
+                                src={mediaURL +  office.galeri[0]?.url}
                                 className="card-img-top square-img hover-zoom"
                                 alt={office.galeri[0]?.nama}
                               />

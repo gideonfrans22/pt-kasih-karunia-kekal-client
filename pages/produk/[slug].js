@@ -1,5 +1,5 @@
 import { NextSeo } from "next-seo";
-import { clientAxios, baseURL } from "../../client";
+import { clientAxios, mediaURL } from "../../client";
 import Lightbox from "react-image-lightbox";
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
@@ -60,7 +60,7 @@ function Movie({ product, offices, contacts, SEO }) {
                         >
                           {isVideo ? (
                             <video
-                              src={baseURL + gallery.url}
+                              src={mediaURL + gallery.url}
                               autoPlay
                               muted
                               loop
@@ -69,7 +69,7 @@ function Movie({ product, offices, contacts, SEO }) {
                           ) : (
                             <img
                               onClick={() => setIsOpen(true)}
-                              src={baseURL + gallery.url}
+                              src={mediaURL + gallery.url}
                               className="d-block w-100 square-img pointer"
                               alt={gallery.name}
                             />
@@ -105,24 +105,24 @@ function Movie({ product, offices, contacts, SEO }) {
                 </div>
                 {isOpen && (
                   <Lightbox
-                    mainSrc={baseURL + product.gallery[photoIndex].url}
+                    mainSrc={mediaURL + product.gallery[photoIndex].url}
                     nextSrc={
-                      baseURL +
+                      mediaURL +
                       product.gallery[(photoIndex + 1) % product.gallery.length]
                         .url
                     }
                     prevSrc={
-                      baseURL +
+                      mediaURL +
                       product.gallery[
                         (photoIndex + product.gallery.length - 1) %
-                          product.gallery.length
+                        product.gallery.length
                       ].url
                     }
                     onCloseRequest={() => setIsOpen(false)}
                     onMovePrevRequest={() =>
                       setPhotoIndex(
                         (photoIndex + product.gallery.length - 1) %
-                          product.gallery.length
+                        product.gallery.length
                       )
                     }
                     onMoveNextRequest={() =>
@@ -136,7 +136,7 @@ function Movie({ product, offices, contacts, SEO }) {
                 <p>{product.deskripsi_singkat}</p>
                 {product.dokumen ? (
                   <a
-                    href={baseURL + product.dokumen.url}
+                    href={mediaURL + product.dokumen.url}
                     className="mb-4 badge badge-danger"
                     target="_blank"
                   >
@@ -164,9 +164,8 @@ function Movie({ product, offices, contacts, SEO }) {
                   <h5>Rp{numeral(product.harga).format("0,0")}</h5>
                 ) : null}
                 <a
-                  href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal, saya ingin membeli produk "}${
-                    product.nama
-                  }`}
+                  href={`https://api.whatsapp.com/send?phone=628121103829&text=${"Halo Admin PT Kasih Karunia Kekal, saya ingin membeli produk "}${product.nama
+                    }`}
                   className="btn btn-success d-block mt-4"
                 >
                   <i className="fab fa-whatsapp mr-2"></i>Beli via Whatsapp
@@ -189,9 +188,9 @@ function Movie({ product, offices, contacts, SEO }) {
                         source={
                           product.deskripsi_lengkap
                             ? product.deskripsi_lengkap.replace(
-                                "/uploads",
-                                "https://admin.kasihkaruniakekalpt.com/uploads"
-                              )
+                              "/uploads",
+                              "https://admin.kasihkaruniakekalpt.com/admin/uploads"
+                            )
                             : null
                         }
                       />
