@@ -117,7 +117,7 @@ const index = ({ page, products, categories, SEO, by }) => {
 
 export async function getServerSideProps({ query: { by } }) {
   const products = await clientAxios("/products?_sort=prioritas_tampil:DESC");
-  const page = await clientAxios("/pages/4");
+  const page = await clientAxios("/pages?halaman=produk");
   const categorizedBy = by && by === "type" ? "product-types" : "distributors";
   let categories = await clientAxios(`/${categorizedBy}`);
 

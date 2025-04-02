@@ -322,7 +322,7 @@ export async function getServerSideProps() {
 
   const deskripsi =
     page.data[0]?.deskripsi_halaman +
-    `. Mendistribusikan alat ${distributors?.data?.data
+    `. Mendistribusikan alat ${distributors?.data
       ?.map((category) => category?.nama)
       ?.join(" | ")}`;
   const SEO = {
@@ -339,12 +339,12 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      products: products.data.data,
-      officeCount: officeCount?.data?.meta.pagination.total,
-      page: page.data.data[0],
-      blogs: blogs.data.data,
-      blogCategories: blogCategories.data.data,
-      distributors: distributors.data.data,
+      products: products.data,
+      officeCount: officeCount?.meta.pagination.total,
+      page: page.data[0],
+      blogs: blogs.data,
+      blogCategories: blogCategories.data,
+      distributors: distributors.data,
       SEO: SEO
     }
   };

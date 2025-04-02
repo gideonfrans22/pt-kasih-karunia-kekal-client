@@ -28,16 +28,16 @@ export default function Profil({ page, offices, SEO }) {
           <div className="container my-4">
             <div className="row">
               <div className="col-md-12">
-                {/* <h3 className="mb-4">Office Kami</h3> */}
+                <h3 className="mb-4">Office Kami</h3>
                 <div className="row">
-                  {/* {offices.map((office) => {
+                  {offices.map((office) => {
                     return (
                       <div className="col-md-4 mb-4" key={office.id}>
                         <div className="relative">
                           <a className="text-body">
-                            {office.galeri[0]?.url ? (
+                            {office.galeri ? (
                               <img
-                                src={mediaURL +  office.galeri[0]?.url}
+                                src={mediaURL + office.galeri[0]?.url}
                                 className="card-img-top square-img hover-zoom"
                                 alt={office.galeri[0]?.nama}
                               />
@@ -76,7 +76,7 @@ export default function Profil({ page, offices, SEO }) {
                         </ul>
                       </div>
                     );
-                  })} */}
+                  })}
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Profil({ page, offices, SEO }) {
 }
 
 export async function getServerSideProps() {
-  const offices = await clientAxios("/offices?_sort=created_at:ASC");
+  const offices = await clientAxios("/offices?_sort=created_at:ASC&populate=*");
   const page = await clientAxios("/pages?halaman=profil");
 
   const deskripsi =
