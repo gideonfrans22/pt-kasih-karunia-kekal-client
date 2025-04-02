@@ -338,7 +338,7 @@ function Movie({ product, offices, contacts, SEO }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await clientAxios(`/products?slug=${slug}`);
+  const res = await clientAxios(`/products?slug=${slug}&populate=*`);
   const offices = await clientAxios("/offices");
   const contacts = await clientAxios("/contacts");
 

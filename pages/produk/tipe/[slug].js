@@ -25,14 +25,16 @@ try {
   console.log(err);
 }
 
-function Kategori({ product }) {
-  const deskripsi = `Distributor resmi ${product.nama}. Menjual ${product.deskripsi_singkat}`;
+function Kategori({ productType, product }) {
+  console.log(productType);
+
+  const deskripsi = `Distributor resmi ${productType?.nama}. Menjual ${productType?.deskripsi_singkat}`;
   const SEO = {
-    title: `PT Kasih Karunia Kekal | ${product.nama}`,
+    title: `PT Kasih Karunia Kekal | ${productType?.nama}`,
     description: deskripsi,
 
     openGraph: {
-      title: `PT Kasih Karunia Kekal | ${product.nama}`,
+      title: `PT Kasih Karunia Kekal | ${productType?.nama}`,
       description: deskripsi
     }
   };
@@ -43,18 +45,18 @@ function Kategori({ product }) {
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 index-page">
           <div className="container">
-            <h1>{product?.tipe}</h1>
-            <p className="lead">{product.deskripsi_singkat}</p>
+            <h1>{productType?.nama}</h1>
+            <p className="lead">{productType?.deskripsi_singkat}</p>
           </div>
         </div>
 
         <div className="container py-5">
-          <h3 className="mb-4">Tipe Produk : {product?.tipe}</h3>
-          {product?.products?.length ? (
-            product.products.map((product) => {
+          <h3 className="mb-4">Tipe Produk : {productType?.nama}</h3>
+          {product?.length ? (
+            product.map((product) => {
               return (
                 <div className="row">
-                  <ProductList key={product.id} product={product} />;
+                  <ProductList key={product.id} product={product} />
                 </div>
               );
             })
@@ -77,13 +79,14 @@ function Kategori({ product }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await clientAxios(`/product-types?tipe=${slug}`);
-
-  console.log(res);
+  const productType = await clientAxios(`/product-types?filters[slug][$eq]=${slug}&populate=*`)
+  const res = await clientAxios(`/products?filters[product_types][slug][$eq]=${slug}&populate=*`);
+  console.log(productType);
 
   return {
     props: {
-      product: res.data[0] || null
+      productType: productType.data[0] || null,
+      product: res.data || []
     }
   };
 }

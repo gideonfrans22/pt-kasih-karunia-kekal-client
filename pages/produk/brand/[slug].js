@@ -24,17 +24,19 @@ try {
   console.log(err);
 }
 
-function Kategori({ product }) {
-  const deskripsi = `Distributor resmi ${product.nama}. Menjual ${product.deskripsi_singkat}`;
+function Kategori({ distributor, product }) {
+  const deskripsi = `Distributor resmi ${distributor.nama}. Menjual ${distributor.deskripsi_singkat}`;
   const SEO = {
-    title: `PT Kasih Karunia Kekal | ${product.nama}`,
+    title: `PT Kasih Karunia Kekal | ${distributor.nama}`,
     description: deskripsi,
 
     openGraph: {
-      title: `PT Kasih Karunia Kekal | ${product.nama}`,
+      title: `PT Kasih Karunia Kekal | ${distributor.nama}`,
       description: deskripsi
     }
   };
+  console.log(distributor, product);
+
 
   return (
     <>
@@ -42,18 +44,18 @@ function Kategori({ product }) {
       <main>
         <div className="jumbotron jumbotron-fluid mb-0 index-page">
           <div className="container">
-            <h1>{product.nama}</h1>
-            <p className="lead">{product.deskripsi_singkat}</p>
+            <h1>{distributor.nama}</h1>
+            <p className="lead">{distributor.deskripsi_singkat}</p>
           </div>
         </div>
 
         <div className="container py-5">
-          <h3 className="mb-4">Brand Produk : {product.nama}</h3>
+          <h3 className="mb-4">Brand Produk : {distributor.nama}</h3>
           <div className="row">
             {product
-              ? product.products.map((product) => {
-                  return <ProductList key={product.id} product={product} />;
-                })
+              ? product.map((product) => {
+                return <ProductList key={product.id} product={product} />;
+              })
               : "Tidak ada data"}
           </div>
         </div>
@@ -63,11 +65,13 @@ function Kategori({ product }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await clientAxios(`/distributors?slug=${slug}`);
+  const distributor = await clientAxios(`/distributors?filters[slug][$eq]=${slug}&populate=*`)
+  const res = await clientAxios(`/products?filters[product_brand][slug][$eq]=${slug}&populate=*`);
 
   return {
     props: {
-      product: res.data[0] || null
+      distributor: distributor.data?.[0],
+      product: res.data || null
     }
   };
 }

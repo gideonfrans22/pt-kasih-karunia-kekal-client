@@ -116,10 +116,10 @@ const index = ({ page, products, categories, SEO, by }) => {
 };
 
 export async function getServerSideProps({ query: { by } }) {
-  const products = await clientAxios("/products?_sort=prioritas_tampil:DESC");
+  const products = await clientAxios("/products?_sort=prioritas_tampil:DESC&populate=*");
   const page = await clientAxios("/pages?halaman=produk");
   const categorizedBy = by && by === "type" ? "product-types" : "distributors";
-  let categories = await clientAxios(`/${categorizedBy}`);
+  let categories = await clientAxios(`/${categorizedBy}?populate=*`);
 
   const deskripsi =
     `Produk-produk yang kami tawarkan: ` +
@@ -142,9 +142,9 @@ export async function getServerSideProps({ query: { by } }) {
     categories.data = categories?.data?.map((category) => {
       return {
         ...category,
-        nama: category?.tipe,
-        id: category?.tipe,
-        slug: category?.tipe
+        nama: category?.nama,
+        id: category?.slug,
+        slug: category?.slug
       };
     });
   }
