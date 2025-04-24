@@ -114,7 +114,8 @@ export default function Kontak({ page, offices, SEO }) {
                           return (
                             <div>
                               <hr />
-                              <h5>{office.alamat}</h5>
+                              <h5>{office.kota}</h5>
+                              <p>{office.alamat}</p>
                             </div>
                           );
                         })}
