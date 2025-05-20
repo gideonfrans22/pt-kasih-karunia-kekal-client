@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@strapi/blocks-react-renderer": "^1.0.2",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.20",
