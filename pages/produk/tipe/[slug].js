@@ -26,7 +26,6 @@ try {
 }
 
 function Kategori({ productType, product }) {
-  console.log(productType);
 
   const deskripsi = `Distributor resmi ${productType?.nama}. Menjual ${productType?.deskripsi_singkat}`;
   const SEO = {
@@ -81,7 +80,6 @@ function Kategori({ productType, product }) {
 export async function getServerSideProps({ query: { slug } }) {
   const productType = await clientAxios(`/product-types?filters[slug][$eq]=${slug}&populate=*`)
   const res = await clientAxios(`/products?filters[product_types][slug][$eq]=${slug}&populate=*`);
-  console.log(productType);
 
   return {
     props: {

@@ -8,7 +8,9 @@ module.exports = {
   publicRuntimeConfig: {
     API_URL: "http://157.245.205.175:1337",
   },
-
+  images: {
+    domains: ['admin.kasihkaruniakekalpt.com'],
+  },
   webpack: (config) => {
     config.resolve.alias["components"] = path.join(__dirname, "components");
     config.resolve.alias["public"] = path.join(__dirname, "public");

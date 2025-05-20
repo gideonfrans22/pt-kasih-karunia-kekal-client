@@ -1,6 +1,7 @@
 import { NextSeo } from "next-seo";
 import { useState } from "react";
-import { baseURL, clientAxios } from "../../client";
+import { baseURL, clientAxios, mediaURL } from "../../client";
+import BlockRendererClient from "../../components/BlockRendererClient";
 const ReactMarkdown = require("react-markdown");
 const numeral = require("numeral");
 const moment = require("moment");
@@ -48,7 +49,7 @@ function Movie({ blog, offices }) {
       <div
         className="jumbotron jumbotron-fluid mb-0 d-flex align-items-center"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(76, 175, 80, 0.7), rgba(114, 199, 117, 0.4)), url(${baseURL}${blog.thumbnail.url})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(76, 175, 80, 0.7), rgba(114, 199, 117, 0.4)), url(${mediaURL}${blog.thumbnail.url})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -64,19 +65,17 @@ function Movie({ blog, offices }) {
         </div>
       </div>
       <div className="container py-5">
-        <ReactMarkdown
-          source={blog.konten.replace(
-            "/uploads",
-            "https://admin.kasihkaruniakekalpt.com/admin/uploads"
-          )}
-        />
+        <BlockRendererClient content={blog.konten} />
+        {/* <ReactMarkdown
+          source={blog.konten}
+        /> */}
       </div>
     </>
   );
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await clientAxios(`/blogs?slug=${slug}`);
+  const res = await clientAxios(`/blogs?slug=${slug}&populate=*`);
 
   return {
     props: {

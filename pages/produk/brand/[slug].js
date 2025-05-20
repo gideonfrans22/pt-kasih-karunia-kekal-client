@@ -35,7 +35,6 @@ function Kategori({ distributor, product }) {
       description: deskripsi
     }
   };
-  console.log(distributor, product);
 
 
   return (

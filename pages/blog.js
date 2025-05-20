@@ -69,9 +69,9 @@ const blog = ({ page, blogs, blogCategories }) => {
                           </a>
                         </Link>
                         <p className="text-secondary">
-                          {blog.konten.length <= 60
-                            ? blog.konten
-                            : blog.konten.substr(0, 60) + "..."}
+                          {blog.deskripsi.length <= 60
+                            ? blog.deskripsi
+                            : blog.deskripsi.substr(0, 60) + "..."}
                           <Link href="/blog/[slug]" as={`/blog/${blog.slug}`}>
                             <a className="text-primary">Selengkapnya</a>
                           </Link>
@@ -91,7 +91,7 @@ const blog = ({ page, blogs, blogCategories }) => {
 
 export async function getServerSideProps() {
   const blogCategories = await clientAxios("/blog-categories");
-  const blogs = await clientAxios("/blogs?_sort=created_at:DESC");
+  const blogs = await clientAxios("/blogs?_sort=created_at:DESC&populate=*");
   const page = await clientAxios("/pages?halaman=blog");
 
   return {

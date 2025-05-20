@@ -14,8 +14,6 @@ export default function Home({
   distributors,
   SEO
 }) {
-
-  console.log(page, distributors);
   return (
     <>
       <NextSeo {...SEO} />
