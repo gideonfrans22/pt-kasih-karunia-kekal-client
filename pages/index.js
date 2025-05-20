@@ -289,9 +289,9 @@ export default function Home({
                             </a>
                           </Link>
                           <p className="text-secondary">
-                            {blog.konten.length <= 60
-                              ? blog.konten
-                              : blog.konten.substr(0, 60) + "..."}
+                            {blog.deskripsi?.length <= 60
+                              ? blog.deskripsi
+                              : blog.deskripsi.substr(0, 60) + "..."}
                             <Link href="/blog/[slug]" as={`/blog/${blog.slug}`}>
                               <a className="text-primary">Selengkapnya</a>
                             </Link>
@@ -315,7 +315,7 @@ export async function getServerSideProps() {
     "/products?_sort=prioritas_tampil:DESC&_limit=8&populate=*"
   );
   const blogCategories = await clientAxios("/blog-categories");
-  const blogs = await clientAxios("/blogs?_sort=created_at:DESC");
+  const blogs = await clientAxios("/blogs?_sort=created_at:DESC&populate=*");
   const page = await clientAxios("/pages?halaman=home");
   const officeCount = await clientAxios("/offices");
   const distributors = await clientAxios("/distributors?populate=*");
